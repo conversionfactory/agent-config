@@ -1,35 +1,154 @@
 # Agent Config
 
-Global configuration for Claude Code and AI coding agents.
+Shared AI coding tool configuration for the Conversion Factory team. One repo to configure Claude Code, Codex CLI, and Cursor with our team's skills, commands, agents, and conventions.
 
-## Structure
+## Setup (First Time)
 
-```
-claude/                  # ~/.claude/ config
-├── CLAUDE.md            # Global instructions
-├── settings.json        # Permissions, hooks, plugins
-├── skills/              # Claude Code skills (~/.claude/skills/)
-├── commands/            # Slash commands (~/.claude/commands/)
-├── hooks/               # Hook scripts (~/.claude/hooks/)
-└── agents-config/       # Agent definitions (~/.claude/agents/)
-
-agents/                  # ~/.agents/ config
-└── skills/              # Skills installed via npx skills add
-```
-
-## Setup
-
-Symlink or copy to your home directory:
+Clone the repo and run the install script:
 
 ```bash
-# Claude Code config
-cp claude/CLAUDE.md ~/.claude/CLAUDE.md
-cp claude/settings.json ~/.claude/settings.json
-cp -r claude/skills/* ~/.claude/skills/
-cp -r claude/commands/* ~/.claude/commands/
-cp -r claude/hooks/* ~/.claude/hooks/
-cp -r claude/agents-config/* ~/.claude/agents/
+cd ~/Documents/code
+git clone git@github.com:conversionfactory/agent-config.git
+cd agent-config
+./install.sh --all
+```
 
-# Agent skills
-cp -r agents/skills/* ~/.agents/skills/
+This will:
+1. Back up any existing config (`~/.claude/`, `~/.codex/`, `~/.cursor/`) to `~/.agent-config-backup/`
+2. Copy `claude-code/CLAUDE.md` → `~/.claude/CLAUDE.md`
+3. Copy `claude-code/settings.json` → `~/.claude/settings.json`
+4. Symlink `shared/skills/` → `~/.claude/skills/` (so syncing just works)
+5. Copy `claude-code/commands/*` → `~/.claude/commands/`
+6. Copy `claude-code/agents/*` → `~/.claude/agents/`
+7. Copy `claude-code/hooks/*` → `~/.claude/hooks/`
+8. Copy `codex/AGENTS.md` → `~/.codex/AGENTS.md`
+9. Copy `cursor/rules/team-conventions.md` → `~/.cursor/rules/team-conventions.md`
+
+After install, set your personal preferences (model, etc.) via Claude Code's `/settings` command. The team config intentionally omits personal preferences.
+
+## Update (Already Installed)
+
+Pull the latest config and re-apply:
+
+```bash
+cd ~/Documents/code/agent-config
+./sync.sh
+```
+
+This runs `git pull` then re-runs `./install.sh` for your previously selected tools. Your existing config is backed up before overwriting.
+
+If `sync.sh` isn't available (older install), just pull and re-run:
+
+```bash
+cd ~/Documents/code/agent-config
+git pull
+./install.sh --all
+```
+
+## What Gets Installed
+
+### Skills (50+)
+
+Shared skills installed to `~/.claude/skills/` (symlinked from `shared/skills/`):
+
+- **Marketing**: copywriting, page-cro, pricing-strategy, email-sequence, ad-creative, content-strategy, paid-ads, seo-audit, and more
+- **Engineering**: nextjs, rails, prisma, drizzle, stripe, deployment, systematic-debugging, test-driven-development, and more
+- **Design**: canvas-design, shadcn-ui, web-design-guidelines, brand-guidelines, theme-factory, and more
+
+### Slash Commands
+
+Installed to `~/.claude/commands/`:
+
+| Command | Description |
+|---------|-------------|
+| `/commit` | Create a well-crafted git commit |
+| `/pr` | Create a pull request with summary |
+| `/review` | Code review (required before merging PRs) |
+| `/test` | Generate tests |
+| `/explain` | Explain code with diagrams |
+| `/refactor` | Refactor with focus area |
+| `/debug` | Debug an issue systematically |
+
+### Agents
+
+Installed to `~/.claude/agents/`:
+
+| Agent | Purpose |
+|-------|---------|
+| architect | System design decisions |
+| code-reviewer | Code review |
+| debugger | Debugging specialist |
+| security-scanner | Security review |
+| test-writer | Test generation |
+
+### Hooks
+
+Installed to `~/.claude/hooks/`:
+
+| Hook | Trigger | What it does |
+|------|---------|-------------|
+| Command history | PreToolUse (Bash) | Logs all commands to `~/.claude/command-history.log` |
+| rm -rf blocker | PreToolUse (Bash) | Blocks `rm -rf`, requires `trash` instead |
+| PR workflow enforcer | PreToolUse (Bash) | Blocks `git merge` on main/development — must open a PR |
+| Review enforcer | PreToolUse (Bash) | Blocks `gh pr merge` until `/review` has been run |
+| Prettier auto-format | PostToolUse (Write/Edit) | Auto-formats .ts/.tsx/.js/.jsx files on save |
+| Plan review | PostToolUse (ExitPlanMode) | Gets Codex second opinion on plans |
+
+### Git Workflow (Enforced)
+
+The config enforces this branching strategy via hooks:
+
+```
+main (production)
+  └── development (primary working branch)
+        ├── feature/add-user-auth
+        └── fix/login-redirect
+```
+
+- **No direct merges** into `main` or `development` — always open a PR
+- **No merging PRs** without running `/review` first
+- Branch naming: `feature/name`, `fix/name`, `hotfix/name`
+
+## Repo Structure
+
+```
+agent-config/
+├── install.sh                   # One-command setup
+├── sync.sh                      # Pull latest + re-apply
+│
+├── shared/                      # Shared across all tools
+│   └── skills/                  # All skills (canonical source)
+│
+├── claude-code/                 # Claude Code specific
+│   ├── CLAUDE.md                # Global instructions
+│   ├── settings.json            # Team permissions, hooks, plugins
+│   ├── commands/                # Slash commands
+│   ├── agents/                  # Agent definitions
+│   └── hooks/                   # Hook scripts
+│
+├── codex/                       # Codex CLI specific
+│   └── AGENTS.md                # Team conventions for Codex
+│
+└── cursor/                      # Cursor specific
+    └── rules/
+        └── team-conventions.md  # Team conventions for Cursor
+```
+
+## Adding New Skills
+
+1. Create a directory in `shared/skills/your-skill-name/`
+2. Add a `SKILL.md` with the skill definition
+3. Optionally add `references/` and `evals/` subdirectories
+4. Commit, push, and tell the team to run `./sync.sh`
+
+Skills in `shared/skills/` are automatically available to Claude Code via the symlink.
+
+## Install Options
+
+```bash
+./install.sh              # Interactive — asks which tools to configure
+./install.sh --all        # Configure all detected tools
+./install.sh --claude-code  # Claude Code only
+./install.sh --codex      # Codex CLI only
+./install.sh --cursor     # Cursor only
 ```
