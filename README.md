@@ -61,6 +61,8 @@ Installed to `~/.claude/commands/`:
 
 | Command | Description |
 |---------|-------------|
+| `/start` | Pick or create a GitHub issue and start a branch |
+| `/workflow` | Show the 5-step development workflow with current status |
 | `/commit` | Create a well-crafted git commit |
 | `/pr` | Create a pull request with summary |
 | `/review` | Code review (required before merging PRs) |
@@ -101,13 +103,31 @@ The config enforces this branching strategy via hooks:
 ```
 main (production)
   └── development (primary working branch)
-        ├── feature/add-user-auth
-        └── fix/login-redirect
+        ├── feature/42-add-user-auth
+        └── fix/63-login-redirect
 ```
 
 - **No direct merges** into `main` or `development` — always open a PR
 - **No merging PRs** without running `/review` first
-- Branch naming: `feature/name`, `fix/name`, `hotfix/name`
+- Branch naming: `feature/123-name`, `fix/123-name`, `hotfix/123-name`
+
+### Development Workflow
+
+Every piece of work follows 5 steps:
+
+| Step | Action | Command |
+|------|--------|---------|
+| 1 | Pick or create an issue | `/start` |
+| 2 | Plan the approach | Enter plan mode |
+| 3 | Implement | Code + `/commit` |
+| 4 | Review | `/review` |
+| 5 | Ship | `/pr` → `development` |
+
+Run `/workflow` to see these steps with your current branch status.
+
+### GitHub Issues
+
+Use GitHub Issues to coordinate work and avoid merge conflicts. Before starting work, check open issues or create a new one. Self-assign issues you're working on. Branch names include issue numbers (`feature/123-description`). Link PRs to issues with "closes #123" in the description.
 
 ## Repo Structure
 
@@ -129,9 +149,39 @@ agent-config/
 ├── codex/                       # Codex CLI specific
 │   └── AGENTS.md                # Team conventions for Codex
 │
-└── cursor/                      # Cursor specific
-    └── rules/
-        └── team-conventions.md  # Team conventions for Cursor
+├── cursor/                      # Cursor specific
+│   └── rules/
+│       └── team-conventions.md  # Team conventions for Cursor
+│
+└── github/                      # GitHub templates (opt-in)
+    └── ISSUE_TEMPLATE/
+        ├── feature.md           # Feature/enhancement template
+        └── bug.md               # Bug report template
+```
+
+### Portless (Local Dev URLs)
+
+The config recommends [portless](https://github.com/vercel-labs/portless) to eliminate port conflicts across the team. Instead of `localhost:3000`, each app gets a stable named URL like `myapp.localhost:1355`.
+
+```bash
+# Install once
+npm install -g portless
+
+# Use instead of bare dev commands
+portless myapp next dev
+portless myapi rails s
+```
+
+Git worktrees automatically get unique subdomains (`myapp-feature-branch.localhost:1355`), so team members can run multiple branches simultaneously with zero port conflicts.
+
+See `CLAUDE.md` for full usage rules.
+
+### GitHub Issue Templates (Optional)
+
+The `github/ISSUE_TEMPLATE/` directory contains issue templates for feature requests and bug reports. To use them in a client project, copy the directory to the project's `.github/` folder:
+
+```bash
+cp -r ~/Documents/code/agent-config/github/ISSUE_TEMPLATE/ .github/ISSUE_TEMPLATE/
 ```
 
 ## Adding New Skills
