@@ -90,6 +90,18 @@ main (production)
 5. **Never merge directly** into `main` or `development` — always use a PR
 6. **Always review before merging** — run a code review before merging any PR
 
+## Development Workflow
+
+The team follows a 5-step workflow: pick/create issue → plan → implement → review → ship. Always include the issue number in branch names (`feature/123-description`). Keep work focused: one issue = one branch = one PR.
+
+## GitHub Issues
+
+Use GitHub Issues to coordinate work across the team. Check open issues before starting work. Self-assign issues you're working on. Branch names must include the issue number. Link PRs to issues with "closes #123" in the description.
+
+## Portless (Local Dev URLs)
+
+Use portless to start dev servers — `portless myapp next dev` instead of bare `next dev`. This gives each app a stable URL (`myapp.localhost:1355`) and avoids port conflicts. Never hardcode port numbers. If a project's dev script uses portless, respect it.
+
 ## Common Patterns
 
 ### Stripe Integration

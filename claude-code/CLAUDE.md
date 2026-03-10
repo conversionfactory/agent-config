@@ -86,10 +86,10 @@ You are working with Corey Haines. These are global preferences that apply acros
 ```
 main (production)
   └── development (primary working branch)
-        ├── feature/add-user-auth
-        ├── feature/stripe-webhooks
-        ├── fix/login-redirect
-        └── fix/null-pointer-error
+        ├── feature/42-add-user-auth
+        ├── feature/57-stripe-webhooks
+        ├── fix/63-login-redirect
+        └── fix/71-null-pointer-error
 ```
 
 ### Workflow Rules
@@ -101,15 +101,15 @@ main (production)
    ```bash
    git checkout development
    git pull origin development
-   git checkout -b feature/my-feature
+   git checkout -b feature/123-my-feature
    # or
-   git checkout -b fix/bug-description
+   git checkout -b fix/456-bug-description
    ```
 
-3. **Branch naming conventions**
-   - Features: `feature/short-description`
-   - Bug fixes: `fix/short-description`
-   - Hotfixes (urgent): `hotfix/short-description`
+3. **Branch naming conventions** (include issue number)
+   - Features: `feature/123-short-description`
+   - Bug fixes: `fix/123-short-description`
+   - Hotfixes (urgent): `hotfix/123-short-description`
 
 4. **When work is complete**
    - Run `/review` to review the code (required before merging)
@@ -144,11 +144,78 @@ main (production)
 ### Quick Reference
 | Action | Command |
 |--------|---------|
-| Start new feature | `git checkout development && git pull && git checkout -b feature/name` |
-| Start bug fix | `git checkout development && git pull && git checkout -b fix/name` |
+| See the full workflow | `/workflow` |
+| Start new work (pick/create issue) | `/start` |
+| Start new feature | `git checkout development && git pull && git checkout -b feature/123-name` |
+| Start bug fix | `git checkout development && git pull && git checkout -b fix/123-name` |
 | Review before merge | `/review` (required before `gh pr merge`) |
 | After PR merged | `git checkout development && git pull` |
 | Check current branch | `git branch --show-current` |
+
+## Development Workflow
+
+Every piece of work follows these 5 steps:
+
+1. **Pick/Create Issue** — Run `/start` to browse open issues or create a new one. Self-assign it and create a branch with the issue number.
+2. **Plan** — Enter plan mode to design the approach before writing code.
+3. **Implement** — Write the code, make focused commits with `/commit`, run linting and tests.
+4. **Review** — Run `/review` to review the code (required before merging).
+5. **Ship** — Run `/pr` to create a pull request → `development`. Link the PR to the issue (closes #123).
+
+Run `/workflow` at any time to see these steps with your current branch and review status.
+
+## GitHub Issues
+
+Use GitHub Issues to coordinate work and avoid merge conflicts.
+
+- **Before starting work**, check open issues or create a new one
+- **Self-assign** issues you're working on so teammates know it's taken
+- **One issue = one branch = one PR** — keep work focused
+- **Branch names include issue numbers**: `feature/123-description`, `fix/456-description`
+- **Link PRs to issues**: include "closes #123" in the PR description
+
+| Action | Command |
+|--------|---------|
+| List open issues | `gh issue list` |
+| View an issue | `gh issue view 123` |
+| Create an issue | `gh issue create` |
+| Self-assign | `gh issue edit 123 --add-assignee @me` |
+| Start work (interactive) | `/start` |
+
+## Portless (Local Dev URLs)
+
+Use [portless](https://github.com/vercel-labs/portless) to avoid port conflicts. Instead of `localhost:3000`, each app gets a stable named URL like `myapp.localhost:1355`.
+
+### Setup
+```bash
+npm install -g portless
+```
+
+### Usage
+```bash
+# Instead of: npm run dev / rails s
+portless myapp next dev
+portless myapi rails s
+
+# Or in package.json:
+"dev": "portless myapp next dev"
+```
+
+### How It Works
+- Runs a reverse proxy on port 1355
+- Auto-assigns random ports (4000-4999) behind the scenes
+- Routes `<name>.localhost:1355` to the actual app port
+- Git worktrees auto-get unique subdomains: `myapp-feature-branch.localhost:1355`
+
+### Rules
+- **Always use portless** to start dev servers in projects that have it configured
+- **Use the app name from package.json** (or the name in the `portless` command) — don't hardcode ports
+- **Never assume a specific port number** — use the portless URL instead
+- If a project's `package.json` has `portless` in the dev script, respect it
+- Set `PORTLESS=0` to bypass if needed for debugging
+
+### Safari Note
+Safari doesn't auto-resolve `.localhost` subdomains. Set `PORTLESS_SYNC_HOSTS=1` to auto-update `/etc/hosts`, or use Chrome/Firefox/Edge.
 
 ## Other Workflow Preferences
 
@@ -197,6 +264,8 @@ I build:
 ## Commands Available
 
 Use these slash commands:
+- `/start` - Pick or create a GitHub issue and start a branch
+- `/workflow` - Show the 5-step development workflow with current status
 - `/commit` - Create a git commit with good message
 - `/pr` - Create a pull request
 - `/review` - Code review for issues
