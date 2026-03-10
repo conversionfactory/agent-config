@@ -101,9 +101,9 @@ main (production)
    ```bash
    git checkout development
    git pull origin development
-   git checkout -b feature/my-feature
+   git checkout -b feature/123-my-feature
    # or
-   git checkout -b fix/bug-description
+   git checkout -b fix/456-bug-description
    ```
 
 3. **Branch naming conventions** (include issue number)
