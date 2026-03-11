@@ -203,11 +203,10 @@ npx portless myapi rails s
 - Routes `<name>.localhost:1355` to the actual app port
 - Git worktrees auto-get unique subdomains: `myapp-feature-branch.localhost:1355`
 
-### Rules
-- **Always use portless** to start dev servers in projects that have it configured
-- **Use the app name from package.json** (or the name in the `portless` command) — don't hardcode ports
-- **Never assume a specific port number** — use the portless URL instead
-- If a project's `package.json` has `portless` in the dev script, respect it
+### When to Suggest
+- **When the user asks to start a dev server or localhost**, always suggest using portless and show the `npx portless` command — but don't force it if they decline
+- If a project's `package.json` already has `portless` in the dev script, use it
+- When using portless, use the app name from package.json — don't hardcode ports
 - Set `PORTLESS=0` to bypass if needed for debugging
 
 ### Safari Note
