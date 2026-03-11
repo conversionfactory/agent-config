@@ -4,7 +4,11 @@ Shared AI coding tool configuration for the Conversion Factory team. One repo to
 
 ## Setup (First Time)
 
-Clone the repo and run the install script:
+Paste this into Claude Code:
+
+> Clone the agent-config repo from git@github.com:conversionfactory/agent-config.git into ~/Documents/code/agent-config and run ./install.sh --all
+
+Or run it manually:
 
 ```bash
 cd ~/Documents/code
@@ -28,7 +32,11 @@ After install, set your personal preferences (model, etc.) via Claude Code's `/s
 
 ## Update (Already Installed)
 
-Pull the latest config and re-apply:
+Paste this into Claude Code:
+
+> Pull the latest agent-config from ~/Documents/code/agent-config and run ./sync.sh to re-apply
+
+Or run it manually:
 
 ```bash
 cd ~/Documents/code/agent-config
