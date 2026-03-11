@@ -6,12 +6,11 @@ Shared AI coding tool configuration for the Conversion Factory team. One repo to
 
 Paste this into Claude Code:
 
-> Clone the agent-config repo from git@github.com:conversionfactory/agent-config.git into ~/Documents/code/agent-config and run ./install.sh --all
+> Clone the agent-config repo from git@github.com:conversionfactory/agent-config.git and run ./install.sh --all
 
 Or run it manually:
 
 ```bash
-cd ~/Documents/code
 git clone git@github.com:conversionfactory/agent-config.git
 cd agent-config
 ./install.sh --all
@@ -34,24 +33,16 @@ After install, set your personal preferences (model, etc.) via Claude Code's `/s
 
 Paste this into Claude Code:
 
-> Pull the latest agent-config from ~/Documents/code/agent-config and run ./sync.sh to re-apply
+> Pull the latest agent-config and run ./sync.sh to re-apply
 
-Or run it manually:
+Or run it manually from wherever you cloned agent-config:
 
 ```bash
-cd ~/Documents/code/agent-config
+cd <your-agent-config-directory>
 ./sync.sh
 ```
 
 This runs `git pull` then re-runs `./install.sh` for your previously selected tools. Your existing config is backed up before overwriting.
-
-If `sync.sh` isn't available (older install), just pull and re-run:
-
-```bash
-cd ~/Documents/code/agent-config
-git pull
-./install.sh --all
-```
 
 ## What Gets Installed
 
@@ -189,7 +180,7 @@ See `CLAUDE.md` for full usage rules.
 The `github/ISSUE_TEMPLATE/` directory contains issue templates for feature requests and bug reports. To use them in a client project, copy the directory to the project's `.github/` folder:
 
 ```bash
-cp -r ~/Documents/code/agent-config/github/ISSUE_TEMPLATE/ .github/ISSUE_TEMPLATE/
+cp -r <your-agent-config-directory>/github/ISSUE_TEMPLATE/ .github/ISSUE_TEMPLATE/
 ```
 
 ## Adding New Skills
