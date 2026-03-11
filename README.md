@@ -193,6 +193,16 @@ cp -r ~/Documents/code/agent-config/github/ISSUE_TEMPLATE/ .github/ISSUE_TEMPLAT
 
 Skills in `shared/skills/` are automatically available to Claude Code via the symlink.
 
+## Recommended Plugins (Optional)
+
+These Claude Code plugins aren't installed by `install.sh` — team members install them individually if useful for their work.
+
+| Plugin | What it does | Install |
+|--------|-------------|---------|
+| [design-and-refine](https://github.com/0xdesign/design-plugin) | Iterative UI design — generates 5 variations, collects visual feedback, synthesizes a refined design with implementation plan | `/plugin install design-and-refine@design-plugins` |
+
+**design-and-refine** is useful for frontend/design work (landing pages, components, UI exploration). It auto-detects your framework and styling system (Next.js + Tailwind + shadcn works great), renders variations at `/__design_lab`, and outputs a `DESIGN_PLAN.md`. Requires your dev server to be running.
+
 ## Install Options
 
 ```bash
