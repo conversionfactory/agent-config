@@ -100,7 +100,7 @@ Use GitHub Issues to coordinate work across the team. Check open issues before s
 
 ## Portless (Local Dev URLs)
 
-Use portless to start dev servers — `portless myapp next dev` instead of bare `next dev`. This gives each app a stable URL (`myapp.localhost:1355`) and avoids port conflicts. Never hardcode port numbers. If a project's dev script uses portless, respect it.
+Use portless to start dev servers — `npx portless myapp next dev` instead of bare `next dev`. This gives each app a stable URL (`myapp.localhost:1355`) and avoids port conflicts. Never hardcode port numbers. If a project's dev script uses portless, respect it.
 
 ## Common Patterns
 

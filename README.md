@@ -163,12 +163,9 @@ agent-config/
 The config recommends [portless](https://github.com/vercel-labs/portless) to eliminate port conflicts across the team. Instead of `localhost:3000`, each app gets a stable named URL like `myapp.localhost:1355`.
 
 ```bash
-# Install once
-npm install -g portless
-
-# Use instead of bare dev commands
-portless myapp next dev
-portless myapi rails s
+# Use instead of bare dev commands (no install needed)
+npx portless myapp next dev
+npx portless myapi rails s
 ```
 
 Git worktrees automatically get unique subdomains (`myapp-feature-branch.localhost:1355`), so team members can run multiple branches simultaneously with zero port conflicts.

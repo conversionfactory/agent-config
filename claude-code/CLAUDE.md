@@ -186,18 +186,14 @@ Use GitHub Issues to coordinate work and avoid merge conflicts.
 
 Use [portless](https://github.com/vercel-labs/portless) to avoid port conflicts. Instead of `localhost:3000`, each app gets a stable named URL like `myapp.localhost:1355`.
 
-### Setup
-```bash
-npm install -g portless
-```
-
 ### Usage
 ```bash
 # Instead of: npm run dev / rails s
-portless myapp next dev
-portless myapi rails s
+npx portless myapp next dev
+npx portless myapi rails s
 
-# Or in package.json:
+# Or add as a dev dependency and use in package.json:
+# npm install -D portless
 "dev": "portless myapp next dev"
 ```
 
