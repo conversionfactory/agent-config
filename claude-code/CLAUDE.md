@@ -140,6 +140,7 @@ main (production)
 
 - **No direct merges into `main` or `development`** — `git merge` is blocked on these branches. Open a PR instead.
 - **No merging PRs without a review** — `gh pr merge` is blocked until `/review` has been run on the current branch.
+- **No merging PRs with failing checks** — `gh pr merge` is blocked if CI/deployment checks (Vercel, GitHub Actions, etc.) are failing or still running.
 
 ### Quick Reference
 | Action | Command |

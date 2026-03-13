@@ -217,6 +217,10 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/enforce-review-before-merge.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/enforce-checks-before-merge.sh"
           }
         ]
       }

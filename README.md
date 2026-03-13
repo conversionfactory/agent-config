@@ -92,6 +92,7 @@ Installed to `~/.claude/hooks/`:
 | rm -rf blocker | PreToolUse (Bash) | Blocks `rm -rf`, requires `trash` instead |
 | PR workflow enforcer | PreToolUse (Bash) | Blocks `git merge` on main/development — must open a PR |
 | Review enforcer | PreToolUse (Bash) | Blocks `gh pr merge` until `/review` has been run |
+| Checks enforcer | PreToolUse (Bash) | Blocks `gh pr merge` if CI/deployment checks are failing or running |
 | Prettier auto-format | PostToolUse (Write/Edit) | Auto-formats .ts/.tsx/.js/.jsx files on save |
 | Plan review | PostToolUse (ExitPlanMode) | Gets Codex second opinion on plans |
 
@@ -108,6 +109,7 @@ main (production)
 
 - **No direct merges** into `main` or `development` — always open a PR
 - **No merging PRs** without running `/review` first
+- **No merging PRs** with failing or pending CI/deployment checks
 - Branch naming: `feature/123-name`, `fix/123-name`, `hotfix/123-name`
 
 ### Development Workflow
