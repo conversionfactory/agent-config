@@ -149,7 +149,7 @@ install_cursor() {
 main() {
   echo ""
   echo "╔══════════════════════════════════════════╗"
-  echo "║   Conversion Factory - Agent Config      ║"
+  echo "║           Agent Config Setup              ║"
   echo "╚══════════════════════════════════════════╝"
   echo ""
 

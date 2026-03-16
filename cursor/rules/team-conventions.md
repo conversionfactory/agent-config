@@ -1,5 +1,5 @@
 ---
-description: Conversion Factory team coding conventions and preferences
+description: Team coding conventions and preferences
 ---
 
 # Team Conventions
