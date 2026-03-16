@@ -249,15 +249,6 @@
   },
   "enabledPlugins": {
     "dev-browser@dev-browser-marketplace": true,
-    "frontend-design@claude-plugins-official": true,
-    "compound-engineering@every-marketplace": true
-  },
-  "extraKnownMarketplaces": {
-    "every-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "EveryInc/compound-engineering-plugin"
-      }
-    }
+    "frontend-design@claude-plugins-official": true
   }
 }

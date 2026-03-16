@@ -1,6 +1,6 @@
 # Codex CLI - Team Instructions
 
-You are working with the Conversion Factory team. These are shared conventions that apply across all projects.
+These are shared team conventions that apply across all projects.
 
 ## REQUIRED
 

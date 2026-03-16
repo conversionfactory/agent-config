@@ -1,6 +1,6 @@
 # Claude Code - Global Instructions
 
-You are working with Corey Haines. These are global preferences that apply across all projects.
+These are global preferences that apply across all projects.
 
 ## REQUIRED
 
@@ -231,7 +231,7 @@ When yarn or node commands fail or behave unexpectedly:
 
 ## Project Types
 
-I build:
+This team builds:
 - **Content sites** - SEO-focused, static-ish pages
 - **B2B SaaS** - Dashboards, subscriptions, team features
 - **Tools with AI features** - Chat interfaces, content generation
