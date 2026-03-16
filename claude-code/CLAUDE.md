@@ -1,6 +1,6 @@
 # Claude Code - Global Instructions
 
-You are working with Corey Haines. These are global preferences that apply across all projects.
+These are global preferences that apply across all projects.
 
 ## REQUIRED
 
