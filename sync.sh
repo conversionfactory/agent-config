@@ -30,7 +30,7 @@ fi
 
 echo ""
 echo "╔══════════════════════════════════════════╗"
-echo "║   Conversion Factory - Sync Config       ║"
+echo "║         Agent Config - Sync              ║"
 echo "╚══════════════════════════════════════════╝"
 echo ""
 

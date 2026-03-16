@@ -1,6 +1,6 @@
 # Agent Config
 
-Shared AI coding tool configuration for the Conversion Factory team. One repo to configure Claude Code, Codex CLI, and Cursor with our team's skills, commands, agents, and conventions.
+Shared AI coding tool configuration for your team. One repo to configure Claude Code, Codex CLI, and Cursor with your team's skills, commands, agents, and conventions.
 
 ## Setup (First Time)
 
@@ -197,6 +197,7 @@ These Claude Code plugins aren't installed by `install.sh` — team members inst
 
 | Plugin | What it does | Install |
 |--------|-------------|---------|
+| [compound-engineering](https://github.com/EveryInc/compound-engineering-plugin) | Engineering workflow agents — specialized agents for code review, architecture, data integrity, security, performance, and more | See repo for install instructions |
 | [design-and-refine](https://github.com/0xdesign/design-plugin) | Iterative UI design — generates 5 variations, collects visual feedback, synthesizes a refined design with implementation plan | `/plugin install design-and-refine@design-plugins` |
 | [agentation](https://www.agentation.com/) | Visual UI feedback — click elements in the browser, annotate bugs/feedback, get structured context (selectors, file paths, component hierarchy) for AI agents | `npm install agentation` |
 
