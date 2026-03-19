@@ -197,9 +197,12 @@ These Claude Code plugins aren't installed by `install.sh` — team members inst
 
 | Plugin | What it does | Install |
 |--------|-------------|---------|
+| [vercel](https://vercel.com/changelog/introducing-vercel-plugin-for-coding-agents) | Vercel-aware context — 47+ skills covering Next.js, AI SDK, Turborepo, real-time validation of deprecated patterns and stale APIs | `/plugin install vercel` |
 | [compound-engineering](https://github.com/EveryInc/compound-engineering-plugin) | Engineering workflow agents — specialized agents for code review, architecture, data integrity, security, performance, and more | See repo for install instructions |
 | [design-and-refine](https://github.com/0xdesign/design-plugin) | Iterative UI design — generates 5 variations, collects visual feedback, synthesizes a refined design with implementation plan | `/plugin install design-and-refine@design-plugins` |
 | [agentation](https://www.agentation.com/) | Visual UI feedback — click elements in the browser, annotate bugs/feedback, get structured context (selectors, file paths, component hierarchy) for AI agents | `npm install agentation` |
+
+**vercel** is essential if you deploy to Vercel — it dynamically injects Vercel knowledge into the agent's context, catches deprecated patterns, and includes specialist agents and slash commands for Vercel-specific tasks.
 
 **design-and-refine** is useful for frontend/design work (landing pages, components, UI exploration). It auto-detects your framework and styling system (Next.js + Tailwind + shadcn works great), renders variations at `/__design_lab`, and outputs a `DESIGN_PLAN.md`. Requires your dev server to be running.
 
