@@ -153,6 +153,48 @@ main (production)
 | After PR merged | `git checkout development && git pull` |
 | Check current branch | `git branch --show-current` |
 
+## Client Repo Workflow
+
+When working in a **client's repository** (any repo not under the `conversionfactory` GitHub org), follow this modified branching strategy.
+
+### Branch Structure in Client Repos
+
+```
+client's main (their production)
+  └── cf/development  ← CF's integration branch (we create and own this)
+        ├── cf/feature/123-add-auth
+        ├── cf/fix/456-login-bug
+        └── cf/feature/789-stripe-webhooks
+```
+
+### Rules
+
+1. **Never work on the client's branches** (`main`, `master`, `development`, etc.)
+   - These belong to the client and should only receive a single clean PR from `cf/development`
+
+2. **Always start from `cf/development`**
+   ```bash
+   git checkout cf/development
+   git pull origin cf/development
+   git checkout -b cf/feature/123-description
+   ```
+
+3. **Branch naming** — same conventions, `cf/` prefix
+   - Features: `cf/feature/123-description`
+   - Bug fixes: `cf/fix/123-description`
+
+4. **PRs go to `cf/development`**, not the client's branches
+   - When the work is ready to deliver, open a single PR from `cf/development` → client's main branch
+
+5. **This is enforced** — committing or creating branches outside `cf/*` in a client repo is blocked by a hook.
+
+### Quick Reference (Client Repos)
+| Action | Command |
+|--------|---------|
+| Start new feature | `git checkout cf/development && git pull && git checkout -b cf/feature/123-name` |
+| Start bug fix | `git checkout cf/development && git pull && git checkout -b cf/fix/123-name` |
+| Deliver to client | Open PR: `cf/development` → client's `main` |
+
 ## Development Workflow
 
 Every piece of work follows these 5 steps:
