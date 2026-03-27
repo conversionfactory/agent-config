@@ -225,6 +225,10 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/enforce-client-repo-branch.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/confirm-repo-fork.sh"
           }
         ]
       }
