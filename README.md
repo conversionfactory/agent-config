@@ -93,6 +93,7 @@ Installed to `~/.claude/hooks/`:
 | PR workflow enforcer | PreToolUse (Bash) | Blocks `git merge` on main/development — must open a PR |
 | Review enforcer | PreToolUse (Bash) | Blocks `gh pr merge` until `/review` has been run |
 | Checks enforcer | PreToolUse (Bash) | Blocks `gh pr merge` if CI/deployment checks are failing or running |
+| Client repo enforcer | PreToolUse (Bash) | In client repos, blocks commits/branches outside `cf/*` prefix |
 | Prettier auto-format | PostToolUse (Write/Edit) | Auto-formats .ts/.tsx/.js/.jsx files on save |
 | Plan review | PostToolUse (ExitPlanMode) | Gets Codex second opinion on plans |
 
