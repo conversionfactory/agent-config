@@ -193,6 +193,14 @@ cp -r <your-agent-config-directory>/github/ISSUE_TEMPLATE/ .github/ISSUE_TEMPLAT
 
 Skills in `shared/skills/` are automatically available to Claude Code via the symlink.
 
+## Recommended Tools (Optional)
+
+These tools aren't installed by `install.sh` — run them per-project or globally as needed.
+
+| Tool | What it does | Install |
+|------|-------------|---------|
+| [expect](https://expect.dev) | Browser-based automated testing for AI agents — scans code changes, generates a test strategy, and validates against a live browser with recordings | `npx -y expect-cli@latest init` |
+
 ## Recommended Plugins (Optional)
 
 These Claude Code plugins aren't installed by `install.sh` — team members install them individually if useful for their work.
