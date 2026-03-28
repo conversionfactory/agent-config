@@ -312,6 +312,16 @@ Use these slash commands:
 - `/refactor` - Refactor with focus area
 - `/debug` - Systematic debugging
 
+## Browser Testing
+
+Use [expect](https://expect.dev) to automatically validate UI changes in a real browser. Run it in any project after setting up:
+
+```bash
+npx -y expect-cli@latest init
+```
+
+After init, agents can run `npx expect-cli` to scan code changes, generate a test strategy, and execute it against a live browser with recordings.
+
 ## MCP Servers Available
 
 - **postgres** - Query databases directly (needs DATABASE_URL)
