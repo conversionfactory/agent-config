@@ -95,6 +95,7 @@ Installed to `~/.claude/hooks/`:
 | Checks enforcer | PreToolUse (Bash) | Blocks `gh pr merge` if CI/deployment checks are failing or running |
 | Client repo enforcer | PreToolUse (Bash) | In client repos, blocks commits/branches outside `cf/*` prefix |
 | Fork guard | PreToolUse (Bash) | Intercepts `gh repo fork` and asks if you meant to be added as a collaborator instead |
+| Worktree recommender | PreToolUse (Bash) | When creating a branch with another Claude session already in the same repo, recommends a git worktree instead |
 | Prettier auto-format | PostToolUse (Write/Edit) | Auto-formats .ts/.tsx/.js/.jsx files on save |
 | Plan review | PostToolUse (ExitPlanMode) | Gets Codex second opinion on plans |
 
