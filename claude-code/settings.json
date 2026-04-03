@@ -233,6 +233,10 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/recommend-worktree-for-parallel-sessions.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/detect-client-tech-stack.sh"
           }
         ]
       }
