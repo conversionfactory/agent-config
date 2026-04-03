@@ -203,6 +203,7 @@ These tools aren't installed by `install.sh` — run them per-project or globall
 |------|-------------|---------|
 | [expect](https://expect.dev) | Browser-based automated testing for AI agents — scans code changes, generates a test strategy, and validates against a live browser with recordings | `npx -y expect-cli@latest init` |
 | [emulate](https://emulate.dev) | Local drop-in replacements for Vercel, GitHub, Google, Slack, Apple, Microsoft, and AWS APIs — useful for testing in CI environments without network access | `npx emulate` |
+| [vercel](https://vercel.com/docs/cli) | Deploy, manage env vars, link projects, and run `vercel dev` for local development with Vercel platform features | `npm i -g vercel@latest` |
 
 ## Recommended Plugins (Optional)
 
