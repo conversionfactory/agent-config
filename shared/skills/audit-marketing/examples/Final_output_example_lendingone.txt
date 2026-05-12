@@ -1,0 +1,423 @@
+## Internal Marketing Notes
+
+## Positioning
+
+- You didn’t provide supporting materials for positioning, so this section can’t really be scored.
+    - A formal positioning document looks like a major gap and is worth creating or updating.
+    - You should define your target audiences more clearly so your messaging and copy can speak directly to each segment.
+    - JTBD / switch analysis is especially valuable for understanding audience psychology, buyer pain points, and how to frame your solution in a more compelling way.
+    - A shared internal positioning document also helps align your marketing and sales teams around one strategy and reduces internal confusion.
+
+---
+
+## Customer research
+
+- You do not provide customer research, so this section cannot be properly scored.
+- Customer research is important for understanding how people actually perceive your company and offer.
+- Recommended research inputs include surveys, interviews, online community research, and feedback mining from prospects and customers.
+- The goal is to understand what customers like, what they dislike, what problems they are trying to solve, and what language resonates with them.
+- This research should feed directly into your positioning and messaging work.
+- For larger clients, video interviews are especially valuable.
+- Customer research also gives you material for testimonials, case studies, use-case pages, and other social proof assets.
+
+---
+
+## Landing/Home Page
+
+- Your homepage likely benefits from being tailored more clearly around audience segments and the different types of loans people are looking for.
+- The "featured deals" section feels compelling and should probably move closer to the top of the page. (our team got distracted scrolling the property offers here. This section is emblematic of the dream you are trying to make accessible to your clients, whether its a fix and flip or setting up a rental. You should lean into that more.)
+- The hero headline feels a little vague and should be more specific about what you actually offer.
+- The subhead helps, but visitors still have to do too much work to understand the value proposition.
+- Calls to action feel inconsistent across the page and should be standardized.
+- The Trustpilot score is strong social proof, but you benefit from adding more proof near the top of the page, like testimonials and reviews from other platforms.
+- There is no visible "how it works" section, which feels like a missed opportunity in a category where users may feel anxious or hesitant.
+- There is no before/after section.
+- Traditional "features" do not apply perfectly here, but the loan options / featured deals work as the closest equivalent.
+    - Link to loan types (as highlighted features section) [here](https://lendingone.com/#:~:text=A%20Suite%20of%20Loan%20Options)
+- Your geographic coverage or operating areas could also be framed more clearly as a trust-building element.
+- There is no strong final CTA section near the bottom of the homepage.
+- There is no manifesto or founder-belief section to humanize the company and make the brand feel less intimidating.
+- There is no FAQ section.
+- Message prioritization feels average mostly because too many important sections are missing.
+- Overall, the page needs more depth and context so visitors can quickly understand what you offer and why it matters.
+- Because loans can feel intimidating, the page should do more to build trust, clarity, and optimism.
+
+---
+
+## Sales pages
+
+- The loan-type pages act as the equivalent of feature or product pages.
+- You do have pages for main loan categories like rental loans and bridge loans.
+- There is a decent amount of content here, but the pages need updating and stronger optimization.
+- The basic structure exists, but the messaging and page experience can improve so each page does a better job of converting visitors.
+- Across the board, pages assume the reader already knows industry language — jargon like DSCR, LTV, LTC, and draws is used throughout without explanation.
+- Pages describe loan parameters but rarely connect those terms to customer outcomes or the investor's actual goal.
+
+### The different pages at a glance
+
+| Page | Depth | Plain English | Enables Customer Framing | Grade |
+| --- | --- | --- | --- | --- |
+| Fix and Flip | Low | Poor | Weak | D |
+| DSCR Rental | Medium | Poor | Weak | D+ |
+| Hard Money | Low | Poor | Confused | F |
+| Fix to Rent | Medium | Moderate | Moderate | C |
+| Bridge Loans | None captured | — | — | Inc. |
+| SFR Portfolio | Low | Poor | Missing | D |
+| New Construction | Medium | Moderate | Weak | C- |
+
+### Page-by-page analysis
+
+**Fix and Flip Loans** — Mentions high leverage, competitive rates, and streamlined draws, but reads like a spec sheet. Terms like "draws," "bridge deals," and "lines of credit" go unexplained. No walkthrough of the process, no explanation of who this product is for.
+
+**DSCR Rental Loans** — The best hook on this page — that the loan qualifies based on the property's income, not the borrower's — is buried as a bullet point. "DSCR" is never defined anywhere despite being the product name. The one plain-English idea is the one that most needed to lead.
+
+**Hard Money Loans** — This page has an identity crisis. The URL is `/hard-money-loans/` but the copy argues that LendingOne is not a hard money lender. A visitor landing here wanting hard money gets redirected to an argument for why they should want something else, with no explanation of what that alternative looks like in practice.
+
+**Fix to Rent Loans** — The most detailed of the set. Explains the BRRRR concept and the mechanics, but still uses terms like "LTC," "points," and "maturity" without definition. The 9-month maturity with a penalty for not refinancing is important customer-facing information framed as fine print rather than a key differentiator.
+
+**Bridge Loans** — Little to no substantive content was retrievable. This page likely has very thin content.
+
+**SFR Portfolio Loans** — The core value prop — consolidating loans reduces overhead and simplifies management — is not on the page. "SFR" is never expanded. No explanation of what happens to existing loans on those properties or who this product is specifically for.
+
+**New Construction Loans** — Terms like "ground-up project," "spec builds," "draw process," and "conversions" are all used without definition. The experience requirement (at least one prior ground-up project in the last 36 months) is meaningful information, but a first-time reader has no context for why it matters.
+
+### Systemic issues across all pages
+
+1. **Terms without translation.** Every page uses industry jargon without defining it. Real estate investors span from first-timers to pros — even pros appreciate clarity.
+2. **Parameters, not outcomes.** Pages describe loan terms but rarely connect them to customer outcomes. "80% LTV" should read: *"You put down 20% and we fund the rest — on a $400K property, you're in for $80K."*
+3. **"What it enables you to do" is almost entirely absent.** None of the pages open with the customer's goal. A strong page starts with the investor's situation, not with LendingOne.
+4. **The Hard Money page is actively confusing.** It targets visitors searching for hard money and then argues they don't want it. It belongs as a comparison page, not a product page.
+5. **Depth varies wildly.** Fix to Rent has the most detail; Bridge Loans is nearly empty. There is no consistent standard across the product line.
+
+You have five investor persona or channel pages: Emerging Investors, Experienced Investors, Portfolio Property Investors, Institutional Investors, and Brokers. The first three are effectively the same generic product list with different headings — no tailored copy, no defined audience, no segment-specific positioning on any of them. 
+
+The Institutional section is the only one that functions like a real solutions page, and the gap between it and the rest is significant.
+
+| Gap | What it would look like |
+| --- | --- |
+| Use-case pages | "Financing the BRRRR Strategy," "Scaling a Fix-and-Flip Business" |
+| Defined personas | Segmented by deals closed, portfolio size, or strategy — not vague labels |
+| Segment-specific pain points | Emerging: "don't know where to start." Experienced: "tired of slow, rigid lenders." |
+| Institutional content parity | The other personas deserve the same depth as the Institutional section |
+| Broker enablement content | What to tell clients, how to position LendingOne, underwriting FAQs |
+
+---
+
+## Conversion pages
+
+- You do not have a traditional pricing page.
+- You could consider adding a rates or pricing resource page if transparency helps build trust or improve qualification.
+- If you prefer to keep pricing gated to encourage calls, that can still be a valid strategy, but it should be intentional.
+- There appear to be multiple pages functioning as demo, sign-up, or conversion pages.
+- Those could either be consolidated into one main high-converting page or split more intentionally by audience.
+- The best elements from the current conversion pages should be combined into a stronger primary page experience.
+
+### Analysis of separate “contact forms”
+
+You have at least five separate application or contact entry points, and there is no consistent standard across any of them.
+
+| Entry point | Type | Notes |
+| --- | --- | --- |
+| `/loan-types/[product]/contact/` | Per-product contact | Single step, no qualification |
+| `/investor-contact/` | General contact | Single step, no social proof |
+| `lp.lendingone.com/fix-and-flip-loans` | PPC landing page | Collects qualifying data; needs visual and design work |
+| `app.lendingone.com` | Full borrower portal | Post-qualification |
+| `brokerapp.lendingone.com` | Broker portal | Separate flow entirely |
+
+Each entry point has been built at a different time and to a different standard — qualification logic, social proof, visual design, and copy quality are inconsistent across all of them. A visitor who finds you through organic search, a referral, or a paid ad is likely to hit a completely different experience depending on where they land.
+
+The priority is to audit all of these entry points together and bring them up to a shared standard: consistent qualification fields, social proof, and a design that actually builds trust at a moment when the visitor is deciding whether to engage.
+
+---
+
+## Competitor comparison pages
+
+- You do not seem to have dedicated competitor comparison pages in the usual format.
+- Some comparison-style content exists in blog posts or articles.
+- Those articles could be turned into dedicated competitor comparison pages targeting the alternatives you want to rank against or differentiate from.
+- This section scores low mainly because the current content is indirect and not built as a clear comparison-page strategy.
+
+### Analysis of current pages and competitor activity
+
+You have two insight articles that name competitors:
+
+- **"Best DSCR Lenders For Real Estate Investors"** — lists RCN Capital, Dominion Financial, Conventus, and Constructive Capital. LendingOne does not appear to place themselves at #1 in their own article. Reads as educational content, not a conversion tool.
+- **"6 Best Fix and Flip Lenders For Real Estate Investors"** — names LendingOne, Renovo Financial, and Anchor Loans. Structured around the right evaluation criteria, but still an article, not a purpose-built comparison page.
+
+**Competitors and third parties are already filling this gap:**
+
+| Site | Page |
+| --- | --- |
+| [capitalton.com](http://capitalton.com/) | "Lima One vs LendingOne vs Kiavi [Fix and Flip Loans]" — a direct three-way head-to-head on loan terms, credit requirements, LTC, ARV limits, and rehab coverage. Exactly the page LendingOne should own but doesn't. |
+| Griffin Funding | "Best DSCR Lenders 2026 |
+| [garrettjohnlaw.com](http://garrettjohnlaw.com/) | "Comparing Kiavi, LimaOne, and Other Top Hard Money Lenders" — a third-party blog capturing comparison searches, featuring LendingOne as one of the "others." |
+| [propertyleads.com](http://propertyleads.com/) | "Lending One Reviews: Lending Requirements & Rates Compared" — a direct review page on LendingOne's own brand name. Someone else owns your branded comparison search. |
+| [newsilver.com](http://newsilver.com/) | Operates as a comparison hub across the private lending space with dedicated review pages for competitors — likely LendingOne too. |
+
+---
+
+## Resources
+
+- You do have blog or resource content, but it feels fragmented across different hostnames and URL structures.
+- You should consider consolidating your resource pages, insight pages, and blog content into one clearer knowledge base or blog index.
+- Right now, the content experience likely makes discovery harder and weakens internal linking and authority.
+
+### Case studies
+
+You have four investor spotlights at `/investor-spotlight/` — written profiles with photos. No video, no downloadable PDF, no deal metrics.
+
+Four spotlights is a thin library, and they read as human interest stories rather than outcome-driven case studies. A proper case study for a lender leads with the deal: property type, loan amount, timeline, problem solved, result. None of that structure is evident here. There is also no institutional case study section — the Institutional Investors area has a "Recent Deals" page, but it is a deal log, not a narrative.
+
+### Downloadable guides
+
+Six web-based product guides exist at `/product-guides/`:
+
+1. Ultimate Guide to Real Estate Investor Loans
+2. Complete Guide to SFR Portfolio Loans
+3. Complete Guide to New Construction Loans
+4. Complete Guide to Fix to Rent Loans
+5. Complete Guide to Fix and Flip Loans
+6. Complete Guide to DSCR Rental Loans
+
+These are web pages, not downloadable PDFs. No gating, no email capture, no lead generation mechanism attached.
+
+They are essentially long-form versions of the product pages. The "Complete Guide to..." naming suggests SEO intent, but without a download gate they generate no leads. Six product guides that do not capture an email are a significant missed opportunity — especially given how qualified someone has to be to seek that content out.
+
+---
+
+## Onboarding
+
+- The onboarding section is usually to score the customer or user experience for customers signing up and starting to use the product, for loans this would be the sign up and application process. We can’t score this without pretending to apply for a loan, which is probably not something you would appreciate so we skipped this section.
+
+---
+
+## Email Marketing
+
+- You do not provide email marketing materials or access, so there are no notes here.
+
+---
+
+## Sales Material
+
+- You do not provide any sales material, so there are no notes here.
+
+---
+
+## Messaging strategy
+
+- Your messaging feels weak in terms of differentiation and the narrative you are telling.
+- You do not clearly define what sets you apart from competitors.
+- Voice, tone, and narrative consistency all need work.
+- Strong positioning work should help shape your messaging strategy.
+- Brand story work could also help clarify who you are, what you stand for, and how you want to sound across the site.
+- Right now, some of the language feels vague and a little cold, and does not create enough clarity or persuasion.
+
+---
+
+## Pricing strategy
+
+- Traditional SaaS-style pricing evaluation does not map neatly to this business model.
+    - Even so, your site does not communicate rates clearly.
+        - You should at least consider whether some level of pricing or rate transparency could be a competitive advantage.
+        - If your rates are strong, surfacing them more clearly could help with trust and lead qualification.
+- Any pricing communication probably needs to be handled carefully because of the complexity of the category, we are sure you’re aware of that, you can’t make certain promises but there is still room to share more pricing information.
+
+---
+
+## CRO and A/B testing
+
+- You do not provide backend access, so this section cannot be fully audited.
+    - The site appears to run on WordPress.
+    - We can see that you are connected to Google Analytics, HubSpot analytics, and other tools, but none of that is accessible.
+    - Access to analytics makes it much easier to understand page performance and prioritize optimization work down the road.
+- A/B testing on WordPress is possible, but it is not as naturally built into the platform as it is elsewhere.
+- Calls to action feel sparse and inconsistent, although some pages are stronger than others.
+- CTA consistency should improve as part of any page optimization work.
+
+---
+
+## GTM launches and campaigns
+
+- Your formal PR and launch history is sparse — there is no documented product launch, campaign, or press release in the last several years.
+- Your presence across the platforms where real estate investors actually spend time is essentially nonexistent.
+- This is worth addressing. Your buyers research heavily in peer communities before making decisions, and right now those conversations are happening without you.
+
+### Press release history
+
+Your PR Newswire archive has three entries across 11 years:
+
+| Date | Headline |
+| --- | --- |
+| October 2022 | "LendingOne Hosts 'Moving & Milestone' Event to Celebrate New Headquarters" |
+| July 2016 | "LendingOne Announces 30-Year Fixed Rate Loans for Real Estate Investors: RentalOne" |
+| November 2015 | "Crestar Group Announces Name Change to LendingOne" |
+
+One rebrand, one headquarters party, and one product launch from a decade ago. No formal PR around any product, feature, or campaign in the last three years.
+
+### Community presence
+
+| Platform | Owned presence | Active engagement | Staff responding? |
+| --- | --- | --- | --- |
+| Reddit | None | None | No |
+| BiggerPockets | Company profile only | None | No (0 of 10 threads reviewed) |
+| Facebook Groups | None | None | No |
+| Quora | None | None | No |
+| Instagram | Yes | Passive | No |
+| LinkedIn | Yes | Passive | No |
+| YouTube | No | None | — |
+| Owned community | None | — | — |
+
+Real estate investors are one of the most community-driven buyer groups in any market. They research on BiggerPockets, ask questions on Reddit, compare notes in Facebook groups, and trust peer recommendations over ads. LendingOne has essentially zero presence in any of those conversations.
+
+When investors talk about you, they do it without you in the room. Negative threads rank, go unanswered, and send prospects to competitors. In one documented example, a Lima One employee showed up in a LendingOne complaint thread on BiggerPockets and converted it into a lead. That is the cost of being absent.
+
+When investors talk about them, they do it without LendingOne in the room. Negative threads rank, go unanswered, and send prospects to competitors. A Lima One employee showed up in a [LendingOne complaint thread](https://www.biggerpockets.com/forums/49/topics/1169059-lending-one-extremely-poor-experience-any-other-recommendations) from 2024 and converted it into a lead. That's the cost of being absent from community forums.
+
+---
+
+## Ads
+
+- The site appears to be connected to Google Ads and possibly other paid channels, so you are likely running ads.
+- You didn’t provide ad account access, so ad performance cannot be reviewed.
+
+---
+
+## SEO content
+
+### Summary
+
+![Screenshot 2026-04-13 145956.png](attachment:7e067a27-c962-4835-a4fd-f8f055e651ef:Screenshot_2026-04-13_145956.png)
+
+You have strong domain authority and traffic coming through the site. It’s 100% certain that all your customers and prospects move through the site at some point, updating and improving the site could have a huge positive effect on your business.
+
+Effective SEO will boost your presence online and in AI search tools. This is something that should be prioritized, currently the site is a bit messy in terms of organization, this penalizes you in search engines.
+
+Brief score overviews:
+
+| Category | Score | Primary gap |
+| --- | --- | --- |
+| TOFU | 2 | Thin volume, missing from sitemap, no distribution strategy |
+| MOFU | 2 | No gated content, no email capture, no nurture — tools exist but do not convert |
+| BOFU | 1 | PPC pages do the job; organic funnel is broken; /apply-now/ is a 404 |
+| Programmatic SEO | 3 | 50 state pages remain; city pages deleted; no loan × location templates |
+| AI SEO | 3 | llms.txt is a good signal; NitroPack and missing sitemap undercut it |
+
+### TOFU — Top of funnel
+
+**Goal:** Attract wide audiences with educational content, broad keywords, and trust-building.
+
+| Content type | Examples | Volume |
+| --- | --- | --- |
+| Market analysis / trend reports | CEO Quarterly Reports, housing permit trends, strongest/weakest markets | ~10–15 articles |
+| "What is" / educational guides | DSCR guide, fix and flip explainer, bridge loan overview | ~6–8 articles |
+| "Best of" roundups | Best DSCR Lenders, 6 Best Fix and Flip Lenders | 3 articles |
+| State location pages | 50 state pages targeting "[state] investment property loans" | 50 pages |
+| Calculators | DSCR Calculator, ARV Calculator | 2 tools |
+| FAQ page | Exists at `/resources/faqs/` with FAQ schema | 1 page |
+
+The TOFU layer exists but is thin and inconsistently structured. The CEO quarterly reports are the strongest asset here — they use proprietary data from your own borrower base, which competitors cannot replicate. The "what is" content is surface-level. The calculators are a standout for organic discovery but have no email gate attached.
+
+The biggest TOFU problem is distribution: the entire blog and insight library is missing from the sitemap, which means Google is not being actively prompted to crawl and index it. Good content with poor distribution is invisible content.
+
+---
+
+### MOFU — Middle of funnel
+
+**Goal:** Nurture leads with targeted resources, gated content, and mid-funnel keywords.
+
+| Content type | Status |
+| --- | --- |
+| Product guides (6) | Web pages only — not downloadable, not gated |
+| Investor spotlights (4) | Public, ungated |
+| DSCR + ARV calculators | Ungated, no email capture |
+| Webinars | None |
+| Ebooks / PDFs | None |
+| Email nurture / drip sequences | No evidence |
+| Lead magnets | None found |
+
+The MOFU layer is essentially non-existent. You have the ingredients — six product guides, four customer stories, two calculators — but none of them are gated, none capture an email, and none are attached to any nurture sequence. A real estate investor can consume everything on the site and leave without you knowing they were there.
+
+The calculators are the biggest missed opportunity. An investor using the DSCR calculator is a warm, qualified lead by definition — they are stress-testing a real deal. Gating that tool behind an email, or attaching a "get a rate quote on this property" CTA to the result, would convert a TOFU tool into a MOFU lead capture with minimal friction.
+
+---
+
+### BOFU — Bottom of funnel
+
+**Goal:** Close at decision points with demos, case studies, high-intent keywords, and strong CTAs.
+
+| Content type | Status | Quality |
+| --- | --- | --- |
+| Loan type pages (7) | Exist | Weak — jargon-heavy, no outcomes framing |
+| Contact / apply forms | Exist | Single step, no qualification logic |
+| Investor spotlights as case studies | 4 exist | Thin — no deal metrics or outcomes |
+| PPC landing pages | Exist on `lp.lendingone.com` | Strongest BOFU asset — qualified form, social proof |
+| Apply Now page | 404 | Dead |
+| Institutional recent deals | Exists | Deal log only — not narrative case studies |
+| Competitor comparison pages | None | Completely absent |
+
+The BOFU layer is the weakest of the three. The only asset that actually functions as a conversion tool is the PPC landing page — which organic visitors never see. The loan type pages are product descriptions, not closing content. The `/apply-now/` 404 is the single most damaging issue in the funnel.
+
+High-intent keywords like "lendingone vs kiavi," "best fix and flip lender for experienced investors," and "[state] DSCR lender" have no dedicated pages targeting them.
+
+---
+
+### AI SEO
+
+**Goal:** Optimized for LLMs, featured snippets, rich results, and clear indexability.
+
+**Positive signals:**
+
+- `llms.txt` and `llms-full.txt` both exist — purpose-built files to help LLMs understand site content. Having both puts you ahead of most lenders in this regard.
+- Schema markup is present: Organization, WebPage, BreadcrumbList, and VideoObject confirmed on blog posts.
+- FAQ schema structure exists on the `/faqs/` page.
+- Canonical tags are properly implemented across blog and insight URLs.
+
+**Negative signals:**
+
+- NitroPack performance optimization actively hinders crawlability — content is deferred and obfuscated, which creates friction for LLM crawlers and Googlebot alike.
+- No HowTo schema on guides.
+- No FAQ schema on individual product pages — a missed opportunity for People Also Ask boxes on high-traffic queries.
+- Content is not structured with the direct-answer format (short definition → expanded explanation) that wins featured snippet position zero.
+- Blog and insight posts are not in the sitemap, so they are not being signaled for priority crawl and are less likely to be indexed for LLM training and AI Overviews.
+
+The `llms.txt` file is a genuine positive signal — someone on your team is thinking about AI search. But the NitroPack implementation undermines it. You cannot optimize for LLMs with one hand while blocking crawlers with the other.
+
+---
+
+### State of Current Programmatic SEO
+
+**Goal:** Auto-generated pages from data templates — location guides, comparison tables, query-specific content.
+
+| Page type | Status | Scale |
+| --- | --- | --- |
+| State location pages | Exist | 50 pages — likely templated |
+| City-level location pages | Deleted / removed | Was ~500–700 pages |
+| Loan type × location combinations | None | e.g., "fix and flip loans in Texas" doesn't exist |
+| Comparison tables (auto-generated) | None | — |
+| Listicles at scale | None | — |
+
+The 50 state pages are your only remaining programmatic SEO asset — and they are the remnant of what was once a much larger programmatic play. The deletion of city-level pages is the single largest driver of the drop from ~1,000 ranking pages to ~100.
+
+The opportunity you are missing is significant: loan type × state × city combinations ("DSCR loans in Austin TX," "fix and flip lender Miami FL") could generate hundreds of high-intent pages at scale. Competitors are capturing this traffic. You abandoned it.
+
+- You should consider updating and expanding your programmatic SEO content.
+- We aren’t 100% sure but there are signs that you previously had city-specific pages or a larger location-based SEO footprint.
+    
+    ![Blue line is total pages](attachment:dd23d498-2865-4df4-876b-8f0ed0aa7e00:Screenshot_2026-04-13_141608.png)
+    
+    Blue line is total pages
+    
+- Somewhere around 800 to 900 pages appear to have been removed from the site — understanding why those were taken down is important before deciding what to rebuild or expand.
+- It is also worth confirming whether those deleted pages have proper redirects in place, or if that traffic is currently hitting 404s.
+- Reintroducing or extending location-specific pages could be a real opportunity if those earlier pages were removed without a strong replacement strategy.
+- A notable spike in backlinks appeared around mid-March — roughly 10,000 new links in a short window. Worth understanding what drove that, as it may have contributed to a traffic increase.
+
+---
+
+---
+
+## Internationalize website
+
+- There is no translation or internationalization setup on the site.
+- That may be worth considering depending on how much international traffic you get.
+- If you share analytics access, you can get a clearer view of how many visitors come from overseas and whether translation is worth the investment.

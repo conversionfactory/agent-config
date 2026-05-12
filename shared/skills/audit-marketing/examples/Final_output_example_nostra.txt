@@ -1,0 +1,389 @@
+## Internal Marketing Notes
+
+## Positioning
+
+*View document [here](https://docs.google.com/document/d/1aJiRT3c2w_LtKQW4K6SLTYQ69nRkY2lS/edit?rtpof=true&sd=true)*
+
+- Your brand voice guide is too thin to function as a full positioning document — it reads more like sales guidance than a marketing foundation.
+- Key gaps: no defined differentiators, no jobs-to-be-done framing, no switch analysis.
+- A stronger positioning document would unify narrative, pain points, anxieties, and value props across the funnel — so prospects get a cohesive experience from first touch through conversion.
+- Your ad copy aligns well with your current positioning, so there's a solid base to build from.
+
+## Customer Research
+
+- You have some useful information but not what counts as robust customer research.
+    - What we found was mostly testimonials and A/B test data — helpful, but not substitutes for deeper research.
+- No evidence of in-depth voice-of-customer work, structured interviews, or strong customer segmentation research.
+
+### What counts and what doesn't
+
+What you have doesn't qualify as customer research:
+
+- **A/B test data** — performance validation, not customer insight
+- **Testimonials/case studies** — social proof, not research
+- **Performance Model tool** — data collection for sales modeling, not customer understanding
+
+The distinction matters: you know your product works (A/B data proves it), but there's no evidence you've done the work to understand *why* customers switch, what language resonates, what objections exist, or who the buyer actually is psychologically.
+
+## Landing / Home Page
+
+- Hero section is strong.
+- Social proof is good overall but should appear earlier — ideally above the fold.
+- Three-product presentation is visually solid (Edge Delivery Engine, Edge Protect, and Edge ID each have their own section).
+- Pricing is hidden — acceptable for the industry category, but reduces clarity for some visitors. You could consider adding pricing information or some context to clear up the confusion around that for visitors.
+- No FAQ section on the homepage, even though you have a dedicated FAQ page. You could pull FAQs from the FAQ page and put them at the end of the home page.
+- Final CTA section is good.
+- CTA language and styling could be more consistent across the site.
+- Copy has decent clarity but can feel dense and jargon-heavy — that may be intentional to qualify more technical buyers, so it's not automatically a negative, but jargon does tend to add friction.
+
+### Integrations section detail
+
+Your integrations section, in the header navigation, names only 3 partners — Profound, Fermat, and Weglot — with zero descriptions of what they enable. If you're surfacing integrations, they need context so visitors understand the value. Consider adding these as their own “highlighted integrations” section on the homepage
+
+## Sales Pages
+
+- Product pages are strong overall.
+- Solutions pages are strong — solid hub structure.
+- Recommend adding persona pages to speak directly to prospects in specific roles and capture role-based search intent.
+- Existing case studies and interactive sales tools support the sales experience well.
+- Customer case studies are strong and should be repurposed into dedicated case study pages on the site.
+
+### Product page breakdown
+
+Three proper product pages exist: Edge Delivery Engine, Edge Protect, and Edge ID — plus Edge Optimization. **Edge Protect** is the strongest — genuine problem statement, behavioral how-it-works, FAQ section, and clear outcome framing. **Edge ID** has a solid comparison table.
+
+Issues across the board:
+
+- Jargon persists throughout ("TTFB," "first-party proxy," "edge-level identity resolution")
+- "What this enables you to do" framing is inconsistent — some pages describe the tech, not the merchant outcome
+- Edge Optimization is noticeably thinner than the other three
+
+### Solutions page breakdown
+
+A lot of good stuff here. You have:
+
+- **5 industry pages** (Fashion, Beauty, Wellness, Jewelry, Food & Bev) — the Fashion page is genuinely tailored with fashion-specific pain points,
+apparel language, and relevant case studies. Not just a label on generic content.
+- **3 use case pages** (CVR/AOV, bot issues, speed) — targeted and problem-framed
+- **7 integration pages** (Meta, Google, Klaviyo, Attentive, etc.)
+
+**Gap:** No persona pages at all. There's no "for VP of Marketing" or "for Head of eCommerce" — segmentation is by industry and problem, not by buyer role.
+
+## Conversion Pages
+
+- No traditional pricing page — pricing is mostly gated behind booking a call. That may help preserve lead quality, even if it lowers total lead volume.
+- You're running a 30-day pilot offer on the demo page — this is a strong conversion lever that should be surfaced much higher on the page.
+    
+    ![View this section on the demo page: [https://www.nostra.ai/book-demo#:~:text=Ready to See the Impact](https://www.nostra.ai/book-demo#:~:text=Ready%20to%20See%20the%20Impact)](attachment:31fffeb6-a6be-497d-b116-653e16d29e3e:image.png)
+    
+    View this section on the demo page: [https://www.nostra.ai/book-demo#:~:text=Ready to See the Impact](https://www.nostra.ai/book-demo#:~:text=Ready%20to%20See%20the%20Impact)
+    
+    ### 30-day pilot placement
+    
+    "Run a 30-Day Pilot on Us — experience measurable lifts in speed, conversion, and data accuracy before you commit."
+    
+    This offer is buried. Move it significantly higher on the page — it's one of your strongest conversion levers and most visitors won't scroll far enough to see it.
+    
+- The Demo form does a decent job collecting and qualifying leads.
+- No signup page — limited direct-signup conversion infrastructure to assess.
+- Demo form is doing most of the conversion work.
+- CTAs across all your web pages can feel sparse, but the homepage has healthy CTA coverage throughout.
+
+## Competitor Comparison Pages
+
+- No competitor or alternative comparison pages exist.
+- You do have one page at `/competitor` — but it names zero actual competitors. The comparison table uses a generic "Competitors" column with checkmarks and X's. A buyer researching "Nostra vs [X]" lands here and gets nothing useful. The page exists to check a box, not to convert.
+- No "Nostra vs [Competitor]" pages.
+- No "[Competitor] alternative" pages.
+- This is a missed opportunity for buyers already in active evaluation mode.
+
+### Competitor SEO landscape
+
+The comparison keyword space is completely unowned by anyone in this category — this is an open field worth capturing.
+
+| Domain | DR | Org Keywords | Org Traffic | Paid Traffic |
+| --- | --- | --- | --- | --- |
+| [nostra.ai](http://nostra.ai/) | 50 | 632 | 1,047 | $0 |
+| [edgemesh.com](http://edgemesh.com/) | 54 | 1,528 | 818 | $0 |
+| [yottaa.com](http://yottaa.com/) | 72 | 320 | 402 | $0 |
+| [fastly.com](http://fastly.com/) | 86 | 18,589 | 23,193 | $18,111/mo |
+| [cloudflare.com](http://cloudflare.com/) | 93 | 574,017 | 5,630,971 | $302,611/mo |
+
+You lead your direct ecom-focused competitors on organic traffic — Edgemesh (818/mo) and Yottaa (402/mo) are both behind. Yottaa's DR of 72 looks strong on paper but is almost entirely brand equity with almost no organic reach.
+
+Your top-ranking keywords are generic and informational — "mobile SEO google," "mobile first indexing," "core web vitals." Not a single buyer-intent ecommerce term appears in the top 25. Visitors arriving from these searches are not shopping for an ecom CDN.
+
+Nobody in this direct competitive set is running paid search. You, Edgemesh, and Yottaa all show $0 in paid traffic. Fastly and Cloudflare are enterprise infrastructure players in a different buyer category — positioning against them in comparisons is a credibility risk unless the angle is clearly "ecom-specialized vs. general infrastructure."
+
+No "Nostra vs [Competitor]," "Nostra alternative," or cross-competitor comparison keywords are ranking for any player in this space. Third parties will fill that gap if you don't — and those pages will rank against your own brand searches.
+
+## Resources
+
+- You have an FAQ page, but FAQ content is not surfaced on the homepage.
+- Case studies are a genuine strength under the /success-stories pages.
+- Interactive sales tools round out the toolkit.
+- Resource depth is stronger in sales enablement than in top-of-funnel educational content.
+
+### Full resource breakdown
+
+- **Blog** — 80+ posts covering site speed, CRO, bot traffic, SEO, ecommerce strategy, Core Web Vitals. Good breadth. No search function, no category
+filters, posts are purely chronological. Discoverability is poor, and none of the blog traffic is buyer-intent (see SEO section).
+- **Case studies** — 22+ dedicated pages, real brand names, hard metrics throughout. The Forever 21 study leads with specific numbers (53% TTFB reduction,
+166% crawl speed improvement). Depth varies — light on customer narrative, typically one quote per study, methodology is vague — but the results-first
+structure works.
+- **Expert guides** — 13 guides featuring named contributors like Nik Sharma and Brian Magida from Warby Parker. Real authority, and a legitimate differentiator most competitors don't have. But currently those pages are broken and the content is not visible on the website front end.
+- **Video** — 7 video testimonials with a linked YouTube channel.
+- **Tools** — ROI calculator and speed test tool.
+- No podcasts. No webinars.
+
+**Critical gap across all resources:** Everything is ungated. No email capture anywhere — across guides, case studies, calculators, or tools. A prospect using the ROI calculator is stress-testing a real deal — they're a warm, qualified lead by definition — and you let them walk away without capturing anything. The assets exist. The lead generation mechanism does not.
+
+## Onboarding
+
+- No real way to test your signup/onboarding flow — difficult to score confidently here.
+- Because your funnel is demo-led and call-led, onboarding friction is less of a risk than in a self-serve SaaS flow.
+- You'd likely benefit from onboarding support elements — a getting started checklist, in-app guidance — depending on product UX.
+- Generally we can recommend evaluating whether users have enough support to avoid drop-off after the sales handoff.
+
+## Email Marketing
+
+- No email templates were found. We didn’t receive an invitation to your HubSpot.
+- No substantive email marketing system or lifecycle email evidence was surfaced in the materials reviewed.
+- Sales-oriented resources exist, but email as a formal channel appears underdeveloped — or was not included in the audit materials.
+
+## Sales Material
+
+*They are clearly sales-led. lots of stuff here in their google drive:* https://drive.google.com/drive/folders/1HoHI3g0yrEftIBvkjEUIes-lZ0FMsg77?usp=sharing
+
+- Sales scripts and adjacent sales resources are there.
+- Case studies are strong and plentiful.
+- Interactive sales tools are a positive differentiator.
+- For conferences, you have at least one large roll-up banner and a QR code — collateral is otherwise light. Recommend adding brochures or handouts to support booth conversations and follow-up.
+- A broad note here: building a marketing-focused positioning doc can bolster all of your sales material, and can help your sales team coordinate and find more effective strategies.
+    - The flip side of that, is that by talking to your sales team you can pull lots of good info from them to help build the positioning doc in the first place— they are the ones talking to customers and will likely have valuable insights into customer psychology and motivations.
+
+### *Case study brand roster*
+
+***Fashion & Apparel:** Forever 21, Fair Harbor, Loro Piana, Salomon, Diesel, Converse, Acne Studios, Balmain, SKIMS, Michael Kors, Balenciaga, Hugo Boss, Vans, Lacoste, Celine, Gymshark, Ted Baker* 
+
+***Jewelry & Accessories:** Vitaly, Linjer, Moon Magic, Montblanc, David Yurman, Longchamp*
+
+***Beauty & Cosmetics:** Nood, Obvi, Jones Road, Huda Beauty, Givenchy, U Beauty*
+
+***Health & Wellness:** KAGED, Everyday Dose, Brez*
+
+***Food & Beverage:** Muddy Bites, Copper Cow Coffee, Chamberlain Coffee, US Foods, Black Rifle Coffee Company, Tim Hortons, Olipop, Poppi, Tony's Chocolonely*
+
+***Home & Lifestyle:** Steelcase, Vitra, Herman Miller*
+
+***Sports & Automotive:** Salomon, ASICS, Callaway Golf, Quiksilver, Brooks Running, Lotus Cars*
+
+***Consumer Goods:** Bira 91, Mahou San Miguel, Constellation Brands, Liquid Death*
+
+### *Sales scripts and materials breakdown*
+
+***Brand Voice Guide** — Two pre-written versions of "What does Nostra do?" (with and without metrics), pillar-based messaging around "Performance Driven," "Protection Layer," and "Fast," plus standardized responses defining what the brand is vs. is not (e.g., "Data-backed" not "Vague").*
+
+***Sales Decks** — Standardized presentation templates ("First Deck" and "TEMPLATE 1") with foundational product slides and impact projection slides (e.g., unlocking $300K–$500K for every $10M in revenue).*
+
+***Follow-up materials** — The Meta EDGE ID A/B Test Set Up Guide serves as a pre-written instruction manual for prospects. A visual Next Steps Card outlines exactly what inputs are needed from the prospect's team and what Nostra delivers in return.*
+
+***Pricing & Results Templates** — HTML-based tools for Pricing Summaries and Test Results let sales teams quickly generate branded collateral for follow-up emails without manual formatting.*
+
+## Messaging Strategy
+
+- Messaging is directionally strong, but the underlying strategic documentation is underdeveloped.
+- Homepage and ad messaging are fairly cohesive.
+- Ad copy is especially strong — clear, well-written, and visually aligned with design. *(looks like AI wrote it. But its good)*
+- Site messaging can become jargon-heavy, though that may be intentional to qualify more technical buyers.
+
+### Messaging gaps in detail
+
+- Your brand voice guide *(this is the Positioning Doc they provided, see positioning section above)* has three defined pillars, a "we are / we are not" table, specific key phrases per pillar, and revenue framing guidance. That's more than most companies at this stage have documented.
+- The document is dated April 2026 — it's brand new, and the website clearly predates it. The gap between the doc and the live site is visible everywhere. That being said, the document could use some updating.
+- The hero body copy — *"enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution"* — directly contradicts your own "direct and fast, not slow or passive" principle from that same document.
+- The core three-product story (speed, protection, identity) does carry consistently across product pages — that's a foundation worth building on.
+- The competitor page is generic and toneless — no voice, no narrative, no differentiation.
+- The aggregate stats on the homepage (92% CVR increase, 38% speed increase) feel disconnected from individual case study numbers elsewhere on the site and risk undermining credibility rather than building it.
+
+**Priority:** Audit the live site against the brand voice guide / or any new work we do with positioning or brand direction and close the gaps — starting with the homepage body copy and the competitor page.
+
+## Pricing Strategy
+
+*Competitor review suggests that conventional pricing pages ARE NOT the industry standard here. Could consider leaving it obscure and gated behind demo calls.*
+
+- No traditional company-wide pricing page.
+- Three separate products with three separate pricing structures — only Edge Protect has a functional pricing page.
+- Recommend creating a pricing page for each product — not conventional transparent pricing tables, but pages that explain why pricing varies, what affects cost, and push visitors toward booking a call.
+- Broad strategic note from the audit: you may have room to charge more. There's a sense you could be undervaluing the offering.
+
+### Edge Protect pricing page notes
+
+The Edge Protect pricing page ([nostra.ai/pricing-edge-protect](http://nostra.ai/pricing-edge-protect)) is functional — clean tiers, free trial, session slider, Stripe checkout. But it's
+isolated. Two of three products have no pricing page at all, and there's no competitive framing on the page — no "why this is worth it vs. alternatives," no anchoring against the cost of the problem.
+
+*Note: Had difficulty viewing the pricing strategy doc directly. It wasn’t shareable from Marelize’s end — Marelize sent a Loom walkthrough of the document: [loom.com/share/e968ad30481c465cb93ffe0851c2f83d](http://loom.com/share/e968ad30481c465cb93ffe0851c2f83d)*
+
+## CRO and A/B Testing
+
+- You appear technically capable of running A/B tests.
+- Site is on Webflow with Google Analytics and HubSpot Analytics connected for tracking and attribution.
+- Good CTA coverage across the site.
+- Demo page is doing most of the heavy lifting for qualification and conversion.
+- No pop-ups anywhere or lead profile collection besides the demo form.
+- Some pages need more CTAs at key decision making points — we may be leaving CRO opportunities on the table.
+- A/B testing on the website itself was mentioned in the provided documents, but the basic capability is there.
+
+## GTM Launches and Campaigns
+
+- LinkedIn is your most active channel — strong presence.
+- Did a full product launch for Edge Protect in November 2025.
+    - *Edge Protect launched in November 2025 with a LinkedIn post as the primary channel. No dedicated launch page, no press release, no email campaign visible.*
+- Press coverage in late 2024.
+- No visible presence on Product Hunt.
+- No visible presence on Reddit, Quora, or ecommerce community forums.
+- Overall GTM and outreach has concentrated in fewer channels rather than broad community distribution.
+    - Mainly linkedin
+
+### GTM details
+
+- **LinkedIn:** 6,261 followers, posting 2–3x per week with case studies, product updates, and industry content. Engagement is modest but consistent.
+- No Product Hunt presence of any kind.
+- No presence in the communities where your buyers actually spend time — no Reddit, no Quora, no ecommerce forums like eCommerceFuel or r/shopify. Nostra
+does not appear in any of these conversations.
+- Your company updates page was last updated in January 2024 (Q4 2023 recap). Effectively abandoned. Its not linked to the rest of the website internally, but Google is still indexing it, even if users can’t reach it through the website. It might be worth starting it back up and updating it periodically.
+- Edge Protect launched in November 2025 with a LinkedIn post as the primary channel. No dedicated launch page, no press release, no email campaign
+visible.
+- No seasonal campaigns or special offer landing pages exist.
+
+**Assets you have but aren't using:** 
+You have two significant PR assets sitting largely untapped — a $37M Series B and a Times Square billboard. The Series A+ ($8.9M) earned Axios coverage in September 2024, which shows there's media appetite for your story. But there's no PR infrastructure to create consistent moments out of funding rounds, product launches, or milestones.
+
+Your buyers and big ICPs— like a VP of Marketing or Head of Ecommerce at a scaling DTC brand — are researching tools in peer communities before making decisions. 
+
+You're absent from all of those conversations. Nobody is showing up in Reddit threads, ECF forums, or Shopify community discussions to represent the brand, answer questions, or engage with the problems Nostra solves. Third parties will fill that gap if you don't.
+
+## Ads
+
+- LinkedIn Ads appear to be a major focus — makes sense given your proven audience fit there.
+- Evidence of Reddit ads and Google ads as well, detected tracking snippets on website front end.
+- Ad creative is strong overall.
+- Ad copy is especially strong and aligns well with positioning — design and copy feel unified and cohesive.
+- No dedicated ad landing pages found.
+- No clear optimization method for ad traffic visible in the materials provided. Multiple ad variants exist, so optimization may be happening in practice — the low score here should be read as "not visible in provided materials," not necessarily "not happening."
+
+## SEO Content
+
+![Screenshot 2026-04-15 104649.png](attachment:421df038-c7da-4531-8393-22edce535a4b:Screenshot_2026-04-15_104649.png)
+
+- Very high domain rating — strong authority foundation.
+- Ranking for various AI-related tools and terms — solid positive signal.
+- Expert guide pages are broken — content is not visible to website visitors.
+- Main opportunity: turn case studies and persona pages into more indexable, buyer-intent content.
+
+### Details
+
+**TOFU — Top of Funnel**
+80+ posts exist and 87 are indexed in the sitemap. Some content is ranking. But almost everything driving traffic is generic developer and SEO
+practitioner content — mobile first indexing, core web vitals, mobile SEO checklists. Only two commercial-intent keywords rank with meaningful traffic, and both are branded. A VP of Marketing or Head of Ecommerce at a DTC brand is not arriving here from any of these searches. The content strategy and the buyer persona are completely misaligned.
+
+**MOFU — Middle of Funnel**
+13 expert guides and 22+ case studies, plus an ROI calculator and speed test tool. All of it is ungated. No email capture anywhere in the content layer. The assets exist — the lead generation mechanism does not. AND THE PAGES ARE BROKEN for the expert guides
+
+**BOFU — Bottom of Funnel**
+Product pages are solid and case studies are results-driven. No competitor comparison pages (covered separately). "How to speed up Shopify website" ranks position 20. "Ecommerce conversion rate optimization" ranks position 30. Almost no high-intent keyword traffic is reaching the bottom of the funnel organically.
+
+**Programmatic SEO**
+No location pages, no templated comparison content, no programmatic pages of any kind in the sitemap.
+
+**Domain Authority and Backlink Profile**
+DR 60. Traffic growth is real. Concentration risk is significant — one article carries half the site's traffic, and one press placement drove the largest single traffic spike on record.
+
+**Content Updating**
+"Your 2024 Mobile SEO Checklist" is still live with the year baked into the URL. No schema markup found on any blog post or page tested. No evidence of a content refresh or pruning process.
+
+**AI SEO**
+No llms.txt file. No schema markup detected on blog posts or the homepage. robots.txt is clean and the sitemap is properly referenced. The Edge Optimization product page shows genuine awareness of crawler behavior — a positive signal — but it's not reflected in the broader content infrastructure.
+
+### Keyword Research
+
+## Keyword Research
+
+Your SEO authority is strong — DR 60, outranking most direct competitors on organic traffic. The problem isn't authority, it's targeting. Almost everything driving your traffic today is generic developer content that your actual buyer (e.g. a VP of Marketing or Head of Ecommerce at a scaling DTC brand) never searches for.
+
+The keyword research below is organized by the three products and the content gaps identified in this audit. Total search volume in this category is low by design — this is an enterprise B2B product. The opportunity is to own every buyer-intent keyword before a competitor or third party does.
+
+### What you're ranking for now (and why it's the wrong traffic)
+
+Your top traffic drivers today: "mobile SEO checklist," "mobile first indexing," "edge SEO," "total blocking time," "crawl budget." These are developer and SEO practitioner searches. Your ideal customer’s are less likely to be arriving from any of them. Two of your top 25 keywords are branded — meaning almost all non-brand traffic is arriving from people who may not buy.
+
+### Opportunity 1 — Bot Protection (Edge Protect)
+
+This is your clearest keyword opportunity. Low difficulty, real buyer intent, and nobody in your competitive set is targeting these terms.
+
+| Keyword | Volume | KD |
+| --- | --- | --- |
+| shopify bot protection | 250 | 2 |
+| ecommerce bot protection | 100 | 6 |
+| bot protection shopify | 40 | 0 |
+| best bot protection app for shopify | 10 | 0 |
+| shopify plus bot protection | 10 | 0 |
+
+**Recommendation:** A dedicated Edge Protect content hub targeting "shopify bot protection" as the primary keyword, with supporting posts on bot traffic costs, how bots hurt ad attribution, and how to detect bot traffic on Shopify. The Edge Protect product page already has good bones — it needs SEO optimization and internal linking from new content.
+
+### Opportunity 2 — Server-Side Tracking / Identity (Edge ID)
+
+"Shopify server side tracking" has 200 searches/month and a KD of 1. Nobody is owning this. Edge ID is directly the answer to this search — a prospect searching this term is exactly your buyer.
+
+| Keyword | Volume | KD |
+| --- | --- | --- |
+| shopify server side tracking | 200 | 1 |
+| shopify server-side tracking | 50 | 0 |
+| first party data ecommerce personalization | 10 | 0 |
+| first party data collection methods ecommerce | 10 | 0 |
+
+**Recommendation:** Create a definitive guide on server-side tracking for Shopify that positions Edge ID as the solution. There are named competitors in this space (Elevar, Littledata) appearing in search — this is a comparison page opportunity too.
+
+### Opportunity 3 — Site Speed (Edge Delivery Engine)
+
+Search volume here is thin, but the traffic potential on the parent topic "how to speed up shopify site" is 2,500/month — meaning the full topic cluster is worth owning even if individual keyword volumes look small.
+
+| Keyword | Volume | KD | Traffic Potential |
+| --- | --- | --- | --- |
+| shopify speed optimization services | 200 | 1 | — |
+| how to speed up shopify site | 90 | 1 | 2,500 |
+| shopify core web vitals | 40 | 1 | — |
+| shopify core web vitals optimization | 10 | 0 | — |
+| shopify plus performance optimization | 30 | 0 | — |
+
+**Recommendation:** Target "how to speed up shopify site" as the hub post with Edge Delivery Engine as the solution. The traffic potential of 2,500 on the parent topic means there's a larger cluster of related searches worth capturing. Your expert guides are the right format for this — but they're currently broken and ungated (see Resources section).
+
+### Opportunity 4 — Conversion Rate (Cross-product keywords)
+
+| Keyword | Volume | KD | Traffic Potential |
+| --- | --- | --- | --- |
+| what is a good shopify conversion rate | 50 | 4 | 1,400 |
+| shopify conversion rate benchmarks | 20 | 0 | — |
+| shopify increase conversion rate | 100 | 0 | — |
+| shopify conversion rate optimization tools | 50 | 14 | — |
+
+**Recommendation:** "What is a good Shopify conversion rate" has a traffic potential of 1,400 — the parent topic cluster is meaningfully sized. A benchmarks post positions Nostra's case study data as authority content and pulls buyers who are actively measuring their own performance gap.
+
+### What not to target
+
+Competitor comparison keywords like "cloudflare alternative" and "fastly alternative" exist with some volume, but those audiences are less valuable — they're general infrastructure buyers, not ecommerce operators. Positioning against Cloudflare or Fastly risks credibility unless the framing is explicitly "ecom-specialized vs. general infrastructure." 
+
+Nostra vs. Edgemesh and Nostra vs. Yottaa comparison pages are a better play — no one is ranking for those terms and the audience match is exact.
+
+### The content gap underneath all of this
+
+None of these keyword opportunities require you to create content you don't already have the material for. Your case studies contain the performance data. Your expert guides have the authority. Your product pages have the technical depth. 
+
+The gap is pulling that material into SEO-optimized, properly structured pages that are actually visible to Google and connected by internal links. Fix the expert guides (currently broken), gate the high-intent tools (ROI calculator, speed test), and build the three product-specific content hubs above.
+
+## Internationalize Website
+
+- No translation or localization system appears to be in place.
+- It might be worth reviewing how much of your current traffic is international.
+- If international traffic or expansion is a real growth opportunity, localization should be explored deliberately rather than added by default.
+- This is an opportunity area, not an urgent fix — unless international demand is a low priority.
