@@ -4,10 +4,11 @@
 
 **Base URL:** `https://api.ahrefs.com/v3/`  
 **Auth:** Bearer token in Authorization header  
-**Key location:** `C:\Users\Ziggy\OneDrive\Desktop\Corey Stuff\claude_code_projects\keys.env` → `AHREFS_API_KEY`
+**Key location:** `~/.claude/audit-config.env` → `AHREFS_API_KEY`
 
 ```bash
-AHREFS_KEY=$(grep AHREFS_API_KEY /path/to/keys.env | cut -d'=' -f2)
+source ~/.claude/audit-config.env
+AHREFS_KEY="$AHREFS_API_KEY"
 TODAY=$(date +%Y-%m-%d)
 ```
 
@@ -377,7 +378,7 @@ Use `—` for null KD or traffic potential values.
 
 ## Fallback: When Ahrefs Quota Is Exhausted
 
-Check `keys.env` for open source SEO API keys. Note in the audit output that data came from a secondary source. The field names and endpoints will differ — consult that API's docs.
+Check `~/.claude/audit-config.env` for open source SEO API keys. Note in the audit output that data came from a secondary source. The field names and endpoints will differ — consult that API's docs.
 
 ---
 

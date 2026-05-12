@@ -46,7 +46,7 @@ This runs `git pull` then re-runs `./install.sh` for your previously selected to
 
 ## What Gets Installed
 
-### Skills (75+)
+### Skills
 
 Shared skills installed to `~/.claude/skills/` (symlinked from `shared/skills/`):
 
@@ -208,6 +208,8 @@ cp -r <your-agent-config-directory>/github/ISSUE_TEMPLATE/ .github/ISSUE_TEMPLAT
 ```
 
 ## Adding New Skills
+
+> **Adding a CF client-delivery stage skill** (`positioning`, `wireframes`, `audit-marketing`, etc.)? Author it in the private [`cf-skills`](https://github.com/conversionfactory/cf-skills) repo instead — see the [CF team workflow skills](#cf-team-workflow-skills) section below. The rest of this section is for general skills authored directly in `agent-config`.
 
 1. Create a directory in `shared/skills/your-skill-name/`
 2. Add a `SKILL.md` with the skill definition
