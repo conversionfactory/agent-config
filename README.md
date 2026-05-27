@@ -51,7 +51,7 @@ This runs `git pull` then re-runs `./install.sh` for your previously selected to
 Shared skills installed to `~/.claude/skills/` (symlinked from `shared/skills/`):
 
 - **CF team workflow** (the 14-stage client delivery process): `client-intake`, `customer-research`, `positioning`, `brand-strategy`, `sitemap-workshop`, `creative-direction`, `logo-design`, `brand-style-guide`, `website-copy`, `wireframes`, `website-build-native`, `website-build-webflow`, `website-build-framer`, `client-handoff`, `launch`, `growth-engine`. Plus `audit` (full product marketing audit orchestrator) and `audit-marketing` (marketing-team deep-dive — see setup below).
-- **Marketing**: copywriting, page-cro, pricing-strategy, email-sequence, ad-creative, content-strategy, paid-ads, seo-audit, and more
+- **Marketing**: Provided by the separate [`marketingskills`](https://github.com/coreyhaines31/marketingskills) plugin — install via `claude plugin marketplace add coreyhaines31/marketingskills && claude plugin install marketing-skills@marketingskills`. Includes copywriting, cro, pricing, emails, ad-creative, content-strategy, ads, seo-audit, and 30+ more.
 - **Engineering**: nextjs, rails, prisma, drizzle, stripe, deployment, systematic-debugging, test-driven-development, and more
 - **Design**: canvas-design, shadcn-ui, web-design-guidelines, brand-guidelines, theme-factory, and more
 
