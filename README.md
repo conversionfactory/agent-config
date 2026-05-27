@@ -46,13 +46,34 @@ This runs `git pull` then re-runs `./install.sh` for your previously selected to
 
 ## What Gets Installed
 
-### Skills (50+)
+### Skills
 
 Shared skills installed to `~/.claude/skills/` (symlinked from `shared/skills/`):
 
-- **Marketing**: copywriting, page-cro, pricing-strategy, email-sequence, ad-creative, content-strategy, paid-ads, seo-audit, and more
+- **CF team workflow** (the 14-stage client delivery process): `client-intake`, `customer-research`, `positioning`, `brand-strategy`, `sitemap-workshop`, `creative-direction`, `logo-design`, `brand-style-guide`, `website-copy`, `wireframes`, `website-build-native`, `website-build-webflow`, `website-build-framer`, `client-handoff`, `launch`, `growth-engine`. Plus `audit` (full product marketing audit orchestrator) and `audit-marketing` (marketing-team deep-dive — see setup below).
+- **Marketing**: Provided by the separate [`marketingskills`](https://github.com/coreyhaines31/marketingskills) plugin — install via `claude plugin marketplace add coreyhaines31/marketingskills && claude plugin install marketing-skills@marketingskills`. Includes copywriting, cro, pricing, emails, ad-creative, content-strategy, ads, seo-audit, and 30+ more.
 - **Engineering**: nextjs, rails, prisma, drizzle, stripe, deployment, systematic-debugging, test-driven-development, and more
 - **Design**: canvas-design, shadcn-ui, web-design-guidelines, brand-guidelines, theme-factory, and more
+
+#### audit-marketing setup
+
+The `/audit-marketing` skill needs a per-machine config file before first use. Create `~/.claude/audit-config.env`:
+
+```bash
+# Where audit folders live for each client (one folder per audit)
+AUDIT_BASE_DIR="$HOME/audits"
+
+# Ahrefs API key (used for SEO data, competitor analysis, keyword research)
+AHREFS_API_KEY="your_ahrefs_key_here"
+
+# Path to the Ahrefs API reference doc (shipped with the skill)
+AHREFS_API_REFERENCE_PATH="$HOME/.claude/skills/audit-marketing/ahrefs_api_reference.md"
+
+# Path to finished example audits (shipped with the skill)
+AUDIT_EXAMPLES_PATH="$HOME/.claude/skills/audit-marketing/examples"
+```
+
+Both `ahrefs_api_reference.md` and `examples/` live inside the skill folder, so the paths above work as-is once `install.sh` has symlinked `shared/skills/` → `~/.claude/skills/`. Only `AUDIT_BASE_DIR` and `AHREFS_API_KEY` need real values from you.
 
 ### Slash Commands
 
@@ -188,12 +209,20 @@ cp -r <your-agent-config-directory>/github/ISSUE_TEMPLATE/ .github/ISSUE_TEMPLAT
 
 ## Adding New Skills
 
+> **Adding a CF client-delivery stage skill** (`positioning`, `wireframes`, `audit-marketing`, etc.)? Author it in the private [`cf-skills`](https://github.com/conversionfactory/cf-skills) repo instead — see the [CF team workflow skills](#cf-team-workflow-skills) section below. The rest of this section is for general skills authored directly in `agent-config`.
+
 1. Create a directory in `shared/skills/your-skill-name/`
 2. Add a `SKILL.md` with the skill definition
 3. Optionally add `references/` and `evals/` subdirectories
 4. Commit, push, and tell the team to run `./sync.sh`
 
 Skills in `shared/skills/` are automatically available to Claude Code via the symlink.
+
+### CF team workflow skills
+
+The 14-stage CF delivery skills (`client-intake`, `positioning`, `brand-strategy`, ..., `audit`, `audit-marketing`) are authored in the private [`cf-skills`](https://github.com/conversionfactory/cf-skills) repo, where client examples and in-progress drafts can be staged before going public. When a skill lands in `cf-skills/main`, it gets copied into `shared/skills/` here.
+
+The copy step is manual today — `cf-skills` is the canonical editing surface, `agent-config` is the distribution surface. Automation is a future improvement.
 
 ## Recommended Tools (Optional)
 
