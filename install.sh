@@ -101,6 +101,12 @@ install_claude_code() {
   symlink_dir "$SCRIPT_DIR/shared/skills" "$claude_dir/skills"
   log "skills/ (symlinked)"
 
+  # Supporting tool docs/CLIs referenced by skills
+  if [ -d "$SCRIPT_DIR/shared/tools" ]; then
+    symlink_dir "$SCRIPT_DIR/shared/tools" "$claude_dir/tools"
+    log "tools/ (symlinked)"
+  fi
+
   # Commands
   copy_dir_contents "$SCRIPT_DIR/claude-code/commands" "$claude_dir/commands"
   log "commands/"

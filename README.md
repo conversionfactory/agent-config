@@ -21,11 +21,12 @@ This will:
 2. Copy `claude-code/CLAUDE.md` → `~/.claude/CLAUDE.md`
 3. Copy `claude-code/settings.json` → `~/.claude/settings.json`
 4. Symlink `shared/skills/` → `~/.claude/skills/` (so syncing just works)
-5. Copy `claude-code/commands/*` → `~/.claude/commands/`
-6. Copy `claude-code/agents/*` → `~/.claude/agents/`
-7. Copy `claude-code/hooks/*` → `~/.claude/hooks/`
-8. Copy `codex/AGENTS.md` → `~/.codex/AGENTS.md`
-9. Copy `cursor/rules/team-conventions.md` → `~/.cursor/rules/team-conventions.md`
+5. Symlink `shared/tools/` → `~/.claude/tools/` when present (supporting docs and CLIs referenced by skills)
+6. Copy `claude-code/commands/*` → `~/.claude/commands/`
+7. Copy `claude-code/agents/*` → `~/.claude/agents/`
+8. Copy `claude-code/hooks/*` → `~/.claude/hooks/`
+9. Copy `codex/AGENTS.md` → `~/.codex/AGENTS.md`
+10. Copy `cursor/rules/team-conventions.md` → `~/.cursor/rules/team-conventions.md`
 
 After install, set your personal preferences (model, etc.) via Claude Code's `/settings` command. The team config intentionally omits personal preferences.
 
@@ -51,7 +52,7 @@ This runs `git pull` then re-runs `./install.sh` for your previously selected to
 Shared skills installed to `~/.claude/skills/` (symlinked from `shared/skills/`):
 
 - **CF team workflow** (the 14-stage client delivery process): `client-intake`, `customer-research`, `positioning`, `brand-strategy`, `sitemap-workshop`, `creative-direction`, `logo-design`, `brand-style-guide`, `website-copy`, `wireframes`, `website-build-native`, `website-build-webflow`, `website-build-framer`, `client-handoff`, `launch`, `growth-engine`. Plus `audit` (full product marketing audit orchestrator) and `audit-marketing` (marketing-team deep-dive — see setup below).
-- **Marketing**: Provided by the separate [`marketingskills`](https://github.com/coreyhaines31/marketingskills) plugin — install via `claude plugin marketplace add coreyhaines31/marketingskills && claude plugin install marketing-skills@marketingskills`. Includes copywriting, cro, pricing, emails, ad-creative, content-strategy, ads, seo-audit, and 30+ more.
+- **Marketing**: Bundled from [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills) plugin v2.3.0 (upstream commit `7f4af1ea8e7809e0142c55bf19243a706f539c25`). Includes 43 skills: copywriting, cro, pricing, emails, ad-creative, content-strategy, ads, seo-audit, marketing-plan, prospecting, sms, and more. Supporting integration docs and CLIs live in `shared/tools/`; source metadata and license live in `shared/marketingskills/`.
 - **Engineering**: nextjs, rails, prisma, drizzle, stripe, deployment, systematic-debugging, test-driven-development, and more
 - **Design**: canvas-design, shadcn-ui, web-design-guidelines, brand-guidelines, theme-factory, and more
 
@@ -163,7 +164,9 @@ agent-config/
 ├── sync.sh                      # Pull latest + re-apply
 │
 ├── shared/                      # Shared across all tools
-│   └── skills/                  # All skills (canonical source)
+│   ├── skills/                  # All skills (canonical source)
+│   ├── marketingskills/         # Vendored source metadata/license for marketing skills
+│   └── tools/                   # Supporting docs/CLIs referenced by skills
 │
 ├── claude-code/                 # Claude Code specific
 │   ├── CLAUDE.md                # Global instructions
@@ -223,6 +226,12 @@ Skills in `shared/skills/` are automatically available to Claude Code via the sy
 The 14-stage CF delivery skills (`client-intake`, `positioning`, `brand-strategy`, ..., `audit`, `audit-marketing`) are authored in the private [`cf-skills`](https://github.com/conversionfactory/cf-skills) repo, where client examples and in-progress drafts can be staged before going public. When a skill lands in `cf-skills/main`, it gets copied into `shared/skills/` here.
 
 The copy step is manual today — `cf-skills` is the canonical editing surface, `agent-config` is the distribution surface. Automation is a future improvement.
+
+### Marketing skills
+
+The marketing skills are vendored from [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills). To refresh them, pull the latest upstream repo, copy `skills/*` into `shared/skills/`, and copy `tools/*` into `shared/tools/`.
+
+Two names overlap with CF delivery-stage skills: `customer-research` and `launch`. Keep the upstream marketing workflow current, but preserve the CF client-delivery mode sections in those files so the Stage 1 and Stage 12 workflows remain available.
 
 ## Recommended Tools (Optional)
 
