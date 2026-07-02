@@ -52,7 +52,8 @@ This runs `git pull` then re-runs `./install.sh` for your previously selected to
 Shared skills installed to `~/.claude/skills/` (symlinked from `shared/skills/`):
 
 - **CF team workflow** (the 14-stage client delivery process): `client-intake`, `customer-research`, `positioning`, `brand-strategy`, `sitemap-workshop`, `creative-direction`, `logo-design`, `brand-style-guide`, `website-copy`, `wireframes`, `website-build-native`, `website-build-webflow`, `website-build-framer`, `client-handoff`, `launch`, `growth-engine`. Plus `audit` (full product marketing audit orchestrator) and `audit-marketing` (marketing-team deep-dive — see setup below).
-- **Marketing**: Bundled from [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills) plugin v2.3.0 (upstream commit `7f4af1ea8e7809e0142c55bf19243a706f539c25`). Includes 43 skills: copywriting, cro, pricing, emails, ad-creative, content-strategy, ads, seo-audit, marketing-plan, prospecting, sms, and more. Supporting integration docs and CLIs live in `shared/tools/`; source metadata and license live in `shared/marketingskills/`.
+- **Marketing**: Bundled from [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills) plugin v2.5.1 (upstream commit `8bfcdffb655f16e713940cd04fb08891899c47db`). Includes 45 skills: copywriting, cro, pricing, offers, emails, ad-creative, content-strategy, ads, seo-audit, marketing-plan, prospecting, public-relations, sms, and more. Supporting integration docs and CLIs live in `shared/tools/`; source metadata and license live in `shared/marketingskills/`.
+- **Maker**: Bundled from [`coreyhaines31/makerskills`](https://github.com/coreyhaines31/makerskills) plugin v0.5.0 (upstream commit `0248a57dc69a0306b2254b88491260f6e395e1ce`). Includes 18 operator skills: decide, business-brainstorm, deep-research, domain, second-brain, company-brain, read-book, watch-video, jab-hook, slide-deck, pm, personal-cfo, company-cfo, paste, social-fetch, skillify, toolify, and loopify. Source metadata, changelog, and license live in `shared/makerskills/`.
 - **Engineering**: nextjs, rails, prisma, drizzle, stripe, deployment, systematic-debugging, test-driven-development, and more
 - **Design**: canvas-design, shadcn-ui, web-design-guidelines, brand-guidelines, theme-factory, and more
 
@@ -75,6 +76,16 @@ AUDIT_EXAMPLES_PATH="$HOME/.claude/skills/audit-marketing/examples"
 ```
 
 Both `ahrefs_api_reference.md` and `examples/` live inside the skill folder, so the paths above work as-is once `install.sh` has symlinked `shared/skills/` → `~/.claude/skills/`. Only `AUDIT_BASE_DIR` and `AHREFS_API_KEY` need real values from you.
+
+#### makerskills setup
+
+Maker skills keep personal/operator data out of this repo. For full use, set the base config location in your shell:
+
+```bash
+export MAKERSKILLS_CONFIG="$HOME/.config/makerskills"
+```
+
+Optional per-skill paths include `SECOND_BRAIN_VAULT`, `COMPANY_BRAIN_VAULT`, `COMPANY_CFO_ROOT`, and `SLIDE_DECK_REPO`. Skills that do not need persistent personal config, like `decide` and `paste`, can be used without this setup.
 
 ### Slash Commands
 
@@ -166,6 +177,7 @@ agent-config/
 ├── shared/                      # Shared across all tools
 │   ├── skills/                  # All skills (canonical source)
 │   ├── marketingskills/         # Vendored source metadata/license for marketing skills
+│   ├── makerskills/             # Vendored source metadata/license for maker skills
 │   └── tools/                   # Supporting docs/CLIs referenced by skills
 │
 ├── claude-code/                 # Claude Code specific
@@ -232,6 +244,12 @@ The copy step is manual today — `cf-skills` is the canonical editing surface, 
 The marketing skills are vendored from [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills). To refresh them, pull the latest upstream repo, copy `skills/*` into `shared/skills/`, and copy `tools/*` into `shared/tools/`.
 
 Two names overlap with CF delivery-stage skills: `customer-research` and `launch`. Keep the upstream marketing workflow current, but preserve the CF client-delivery mode sections in those files so the Stage 1 and Stage 12 workflows remain available.
+
+### Maker skills
+
+The maker skills are vendored from [`coreyhaines31/makerskills`](https://github.com/coreyhaines31/makerskills). To refresh them, pull the latest upstream repo, copy `skills/*` into `shared/skills/`, and copy source metadata, changelog, and license into `shared/makerskills/`.
+
+Maker skills currently have no name overlaps with CF or marketing skills.
 
 ## Recommended Tools (Optional)
 

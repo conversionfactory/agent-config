@@ -6,7 +6,7 @@ Current versions of all skills. Agents can compare against local versions to che
 |-------|---------|--------------|
 | ab-testing | 2.0.0 | 2026-05-05 |
 | ad-creative | 2.0.0 | 2026-05-05 |
-| ai-seo | 2.0.1 | 2026-05-18 |
+| ai-seo | 2.1.0 | 2026-06-15 |
 | analytics | 2.0.0 | 2026-05-05 |
 | aso | 2.0.0 | 2026-05-05 |
 | churn-prevention | 2.0.0 | 2026-05-05 |
@@ -17,38 +17,64 @@ Current versions of all skills. Agents can compare against local versions to che
 | competitors | 2.0.0 | 2026-05-05 |
 | content-strategy | 2.0.0 | 2026-05-05 |
 | copy-editing | 2.0.0 | 2026-05-05 |
-| copywriting | 2.0.0 | 2026-05-05 |
+| copywriting | 2.0.1 | 2026-06-16 |
 | cro | 2.0.0 | 2026-05-05 |
 | customer-research | 2.0.0 | 2026-05-05 |
 | directory-submissions | 2.0.0 | 2026-05-05 |
 | emails | 2.0.0 | 2026-05-05 |
 | free-tools | 2.0.0 | 2026-05-05 |
 | image | 2.0.1 | 2026-05-18 |
-| launch | 2.0.0 | 2026-05-05 |
+| launch | 2.0.1 | 2026-06-16 |
 | lead-magnets | 2.0.0 | 2026-05-05 |
 | marketing-ideas | 2.0.0 | 2026-05-05 |
 | marketing-plan | 1.1.0 | 2026-05-29 |
 | marketing-psychology | 2.0.0 | 2026-05-05 |
+| offers | 1.0.0 | 2026-06-16 |
 | onboarding | 2.0.0 | 2026-05-05 |
 | ads | 2.0.1 | 2026-05-26 |
 | paywalls | 2.0.0 | 2026-05-05 |
 | popups | 2.0.0 | 2026-05-05 |
-| pricing | 2.0.0 | 2026-05-05 |
+| pricing | 2.0.1 | 2026-06-16 |
 | product-marketing | 2.0.0 | 2026-05-05 |
 | programmatic-seo | 2.0.0 | 2026-05-05 |
 | prospecting | 1.0.0 | 2026-05-26 |
+| public-relations | 1.0.0 | 2026-06-10 |
 | referrals | 2.0.0 | 2026-05-05 |
 | revops | 2.0.0 | 2026-05-05 |
-| sales-enablement | 2.0.0 | 2026-05-05 |
+| sales-enablement | 2.0.1 | 2026-06-16 |
 | schema | 2.0.0 | 2026-05-05 |
 | seo-audit | 2.0.0 | 2026-05-05 |
 | signup | 2.0.0 | 2026-05-05 |
 | site-architecture | 2.0.0 | 2026-05-05 |
 | sms | 1.0.0 | 2026-05-21 |
-| social | 2.0.0 | 2026-05-05 |
+| social | 2.1.0 | 2026-06-10 |
 | video | 2.0.1 | 2026-05-18 |
 
 ## Recent Changes
+
+### 2.5.1 (2026-06-16)
+
+- Bumped `copywriting`, `launch`, `pricing`, and `sales-enablement` from 2.0.0 → 2.0.1 to reflect the description changes that shipped in v2.5.0 (cross-references added pointing to the new `offers` skill). The skill bodies are unchanged; only the frontmatter description picked up a new "For ..., see offers" line. Without the version bump, the repo's update check (which compares VERSIONS.md against local skill metadata) would not surface the routing/discovery change to users with installed copies. Caught by codex review.
+
+### 2.5.0 (2026-06-16)
+
+- Added `offers` skill for offer design — the thing you actually sell, not the page that sells it. Built around two frameworks: (1) the Value Equation (Dream Outcome × Perceived Likelihood / Time Delay × Effort), originally Hormozi, now standard across direct-response and creator-economy training; and (2) the six-component anatomy of a complete offer (core deliverable, bonus stack, guarantee, scarcity, name, price + payment structure). Self-scoped explicitly: best for services, agency retainers, courses, coaching, info products, high-ticket B2B, and direct response. Less load-bearing for pure self-serve SaaS where `pricing` does more work. References include: `value-equation.md` (full breakdown of the four levers with diagnostic prompts and a worked example of a stuck $3K copywriting course), `offer-anatomy.md` (the six components with worked examples and a fractional-CMO before/after), `guarantee-design.md` (eight guarantee types with decision tree by business type, refund tolerance, and buyer sophistication; honest case for anti-guarantees on premium offers), `bonus-stacking.md` (bonuses-as-objection-handlers, the math of stated value, the 4-bonus pattern that works, common failure modes), `scarcity-urgency.md` (honest formats: capacity / cohort / founding-member / inventory / seasonal / bonus-expiry / price-increase; explicit rejection of fake countdown timers and manufactured FOMO; why fake scarcity is uniquely costly), `offer-formats.md` (default offer format by business type — service, course, coaching, info product, high-ticket B2B, agency retainer, self-serve SaaS, direct-response — with what to watch for each), and `examples.md` (six anonymized before/after worked examples spanning fractional CMO, copywriting course, Notion templates, B2B SaaS annual contract, group coaching mastermind, content agency retainer). Includes a banned-vocabulary list (game-changing, revolutionary, 10x, secret, hidden, "limited time" with no actual limit) and explicit anti-patterns (manipulative scarcity, over-promising guarantees, bonus inflation, course-bro aesthetic).
+- Cross-references added in `pricing`, `copywriting`, `launch`, and `sales-enablement` descriptions pointing to `offers` for offer construction.
+- Total skills: 45.
+
+### 2.4.2 (2026-06-15)
+
+- **ai-seo** (2.0.1 → 2.1.0): added coverage of Google's Open Knowledge Format (OKF), a v0.1 markdown spec for agent-readable site bundles introduced on the Google Cloud blog on 2026-06-12 and shipped inside Knowledge Catalog. New `references/okf.md` reference covers what OKF is (directory of cross-linked markdown files with YAML frontmatter — `type` required, plus `title`/`description`/`resource`/`tags`/`timestamp` recommended), honest framing (Google built it for data-team catalog metadata; site-readable repurposing popularized by Suganthan Mohanadasan is a clever secondary use), what it does for AI search today (nothing immediate; protocol-layer registration like early schema.org adoption), where OKF fits in the agent-readable stack alongside `sitemap.xml` / `robots.txt` / `llms.txt` / `/pricing.md` / schema, three ways to ship a bundle (Suganthan's free web generator, his pending WordPress plugin, or by hand), hosting guidance (`yoursite.com/okf/index.md` plus an `llms.txt` line pointing to it), when to skip (closed platforms like Wix/Squarespace, very small sites, sites without other machine-readable files), and what to watch (v1.0 spec, AI engine adoption signals). `SKILL.md` adds a brief OKF subsection under "Machine-Readable Files for AI Agents" pointing to the reference. Frontmatter description extended with new triggers: `llms.txt`, `OKF`, `Open Knowledge Format`, `knowledge bundle`, `agent-readable site`. `references/platform-ranking-factors.md` Google AI Overviews section gets an OKF callout framing it as a "register early" protocol bet rather than a confirmed ranking signal.
+
+### 2.4.1 (2026-06-10)
+
+- Renamed `pr` skill to `public-relations` to avoid collision with pull-request skills in other Claude Code plugins (common naming for code-review / GitHub PR automation). The skill description already disambiguated from pull requests, but the directory name `pr` was still ambiguous to skill resolvers and to users typing `/pr`. The rename happened within hours of the initial v2.4.0 publish, before meaningful install adoption. No content changes; skill version stays at 1.0.0. All cross-references in `social/SKILL.md`, `VERSIONS.md`, and `README.md` updated accordingly.
+
+### 2.4.0 (2026-06-10)
+
+- Added `public-relations` skill (originally shipped as `pr`, renamed in v2.4.1) for public relations / earned media work — pitching journalists, newsjacking trending stories, responding to press requests (HARO/Connectively, Qwoted, Featured, Help A B2B Writer), and building the owned-media foundation (press page + media kit). Four PR modes (reactive / proactive / inbound / owned), explicit when-to-skip framing, and a banned-vocabulary list. References include: `newsjacking.md` (detect → score → angle → pitch loop with newsworthiness scoring rubric, 7 angle templates, Google News / HN / Reddit curl recipes, failure modes); `journalist-pitching.md` (media list construction, journalist fit scoring, 6 pitch templates by angle — data story / exclusive launch / op-ed / customer story / trend connector / newsjack response — subject-line craft, embargo etiquette, follow-up cadence); `press-platforms.md` (daily triage workflow, response template, ROI reality check); `media-outlets.md` (tiered list of tech press, SaaS, AI, devtools, business outlets, newsletters, podcasts, vertical press, regional press — explicitly scoped to journalist-driven outlets, with startup directories deferred to `directory-submissions`). Scope is enforced via cross-references: the `public-relations` skill handles earned media; `directory-submissions` handles Product Hunt / BetaList / SaaS directories; `launch` handles the broader launch moment.
+- **social** (2.0.0 → 2.1.0): added `references/listening.md` for engagement triage — a daily loop for surfacing the top posts to comment on rather than scrolling feeds. Includes a 5-dimension scoring rubric (ICP fit, intent signal, reach potential, comment opportunity, recency), comment quality tiers, curl-based recipes for Reddit / HN Algolia / Bluesky (no auth required), and a browser-driven workflow for LinkedIn and X via `dev-browser` with persistent session. Added `references/listening-sources-template.md` — a copyable starter for `.agents/listening-sources.md` covering brand/category context, ICP definition, target accounts per platform, intent keywords, subreddits, saved-search URLs, and a do-not-engage list. SKILL.md Engagement Strategy section now links to the listening reference.
+- Total skills: 44.
 
 ### 2.3.0 (2026-05-27)
 

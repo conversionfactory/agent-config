@@ -2,8 +2,8 @@
 
 Vendored from [`coreyhaines31/marketingskills`](https://github.com/coreyhaines31/marketingskills).
 
-- Plugin version: `2.3.0`
-- Upstream commit: `7f4af1ea8e7809e0142c55bf19243a706f539c25`
+- Plugin version: `2.5.1`
+- Upstream commit: `8bfcdffb655f16e713940cd04fb08891899c47db`
 - Skills copied from upstream `skills/*` into `shared/skills/`
 - Tool docs and CLIs copied from upstream `tools/*` into `shared/tools/`
 
