@@ -1,8 +1,8 @@
 ---
 name: decide
-description: When you have a decision to make and want a structured workflow that picks the load-bearing questions, walks through them, reaches a call (or "wait"), and archives the rationale for future reference. Based on the 37signals Guide to Making Decisions (38 questions). Triages to 6–8 relevant questions per decision instead of forcing all 38. Archives every decision to references/decisions-archive/ with a revisit date so you can check later whether the call was right. Triggers on "/decide," "help me decide," "should I [X]," "I need to make a decision about," "stuck on a decision," "deciding between," "go/no-go on," "what should I do about." This is both the decision-making workflow AND the decision log — making the decision is the act of logging it.
+description: When you have a decision to make and want a structured workflow that picks the load-bearing questions, walks through them, reaches a call (or "wait"), and archives the rationale for future reference. Based on the 37signals Guide to Making Decisions (38 questions) plus house additions like Q39 opportunity cost ("what does saying yes displace?"). Triages to 6–8 relevant questions per decision instead of forcing the full set. Archives every decision to ~/.config/makerskills/decide/archive/ with a revisit date so you can check later whether the call was right. Triggers on "/decide," "help me decide," "should I [X]," "I need to make a decision about," "stuck on a decision," "deciding between," "go/no-go on," "what should I do about." This is both the decision-making workflow AND the decision log — making the decision is the act of logging it.
 metadata:
-  version: 0.1.0
+  version: 0.3.0
 ---
 
 # /decide — Structured decision workflow + archive
@@ -22,7 +22,7 @@ If any are missing, ask. Don't proceed with vague framing.
 
 ## Step 2 — Triage the question set
 
-Read `references/questions.md` for the full 38 and category mapping. Pick 6–8 based on the decision's characteristics:
+Read `references/questions.md` for the full set (the 37signals 38 + house additions, e.g. Q39 opportunity cost) and category mapping. Pick 6–8 based on the decision's characteristics:
 
 **Default 5 (always ask):**
 - Q1 — Does this decision actually need to be made?
@@ -41,7 +41,8 @@ Read `references/questions.md` for the full 38 and category mapping. Pick 6–8 
 | Lots of data / analysis | Q19 (what missing info would change it?), Q26 (data vs gut?), Q9 deepened |
 | Recurring decision | Q11 (last time?), Q23 (one-and-done or repeating?) |
 | Customer-facing | Q24 (anyone outside depending?), Q25 (customer vs us impact?) |
-| Money decision | Q38 (in the end, is this about money?), Q36 (return on effort?) |
+| Money decision | Q38 (in the end, is this about money?), Q36 (return on effort?), Q39 (what does yes displace?) |
+| Big time / focus commitment | Q39 (opportunity cost), Q36 (return on effort?), Q20 (creates or eliminates work?) |
 | Stuck / not deciding | Q4 (why hasn't it been made already?), Q10 (what if we don't decide?), Q31 (do you even care?) |
 
 Cap at ~8 questions. More than that turns into analysis paralysis (which is itself one of the things this skill exists to prevent).
@@ -50,7 +51,7 @@ Tell the user which questions you picked and why, then proceed.
 
 ## Step 3 — Walk through
 
-Ask the questions one at a time, or in a tight cluster if the user wants to write fast. Capture his answers verbatim — don't paraphrase into corporate-speak.
+Ask the questions one at a time, or in a tight cluster if the user wants to write fast. Capture their answers verbatim — don't paraphrase into corporate-speak.
 
 For Q9 (first instinct), get the answer BEFORE diving into analysis. The point is to surface the gut call so we can later check if "analysis" was just rationalization.
 
@@ -78,7 +79,11 @@ Write what to look for on the revisit ("did MRR move? did the partner ship? do c
 
 ## Step 6 — Archive
 
-Write to `references/decisions-archive/<YYYY-MM-DD>-<slug>.md`:
+Archives live in `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/decide/archive/` (create the directory if missing). Never write archives inside the skill's own folder — skill installs and upgrades re-sync from source and wipe anything saved there.
+
+**Migration:** if this skill's folder contains an old `references/decisions-archive/` with user entries, move those files into the archive directory before writing anything new.
+
+Write to `<archive dir>/<YYYY-MM-DD>-<slug>.md`:
 
 ```markdown
 # Decision: <one-line>
@@ -117,7 +122,7 @@ Write to `references/decisions-archive/<YYYY-MM-DD>-<slug>.md`:
 Questions adapted from [The 37signals Guide to Making Decisions](https://37signals.com/how-we-make-decisions)
 ```
 
-Append to `references/decisions-archive/INDEX.md`:
+Append to `<archive dir>/INDEX.md` (create if missing):
 
 ```markdown
 - 2026-06-16 — [<decision>](./<filename>.md) — **<call>** — <one-line rationale> — revisit 2026-09-16

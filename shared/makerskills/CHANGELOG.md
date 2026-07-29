@@ -6,6 +6,97 @@ All notable changes to `makerskills` are documented here. Format loosely follows
 
 ---
 
+## [Unreleased]
+
+### Changed
+- **`vibecad` moved out** (closes #18) — extracted with history to its own repo (`coreyhaines31/vibecad`, private for now). 20 → 19 skills. Its changelog entries below remain for the record.
+
+### Added
+- **`vibecad` v0.3.0** (closes #15) — img2threejs integration: `references/showcase-template.html` (code-only procedural Three.js presentation scene — canvas wood grain, RoomEnvironment/ACES studio lighting, turntable — with the model factory driven by exact vibecad dimensions instead of vision guessing) + Step 5 showcase workflow with the screenshot→vision-review→self-correct loop, and photo-in intake (img2threejs reconstructs the look, vibecad snaps it to buildable stock sizes). Cross-referenced as an external Apache-2.0 skill, not vendored.
+- **`vibecad` v0.2.0** — shop package upgrade: `scripts/yieldopt.py` 1D cutting-stock optimizer (FFD + kerf + end-trim, whole-board handling, grouped cut patterns, saw-setting batches, offcut keeper list, `--json` mode), `references/shop-workflow.md` (design↔yield feedback loop incl. the stock/2 trap, cut-session sequencing, assembly-step design rules with per-step fastener schedules, consolidated hardware schedule). Battle-tested against the first real project's cut list, where it beat the hand plan's packing.
+- **`vibecad` v0.1.0** (closes #7) — conversational parametric CAD via OpenSCAD. Describe a physical object in plain English → Claude writes a parametric .scad script → renders a 4-view preview set headless → iterate on feedback; the user never opens a CAD UI. Woodworking-first: nominal-vs-actual lumber tables, kerf-aware cut lists + stock shopping lists, board-foot math, ergonomic defaults. Also exports STL (3D print) and DXF (laser/CNC). Projects archive to `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/vibecad/projects/<slug>/`. Documents the macOS Gatekeeper silent-failure gotcha (unsigned cask → renders exit 1 with no output until dequarantined).
+
+---
+
+## [v1.4.0] — 2026-07-15
+
+### Added
+- **`decide` Q39 — opportunity cost** (skill v0.3.0, closes #11) — a reader on X pointed out the 37signals 38 never directly ask "if we say yes to this, what are we saying no to?" (nearest: Q36 return-on-effort, Q37 easier/harder). Added as a clearly-labeled **house addition** so the original 38 stay faithful to the source, and wired into triage: money decisions and big time/focus commitments now pull Q39.
+
+---
+
+## [v1.3.0] — 2026-07-14
+
+### Added
+- **New skill: `unstuck`** (v0.1.0, closes #9) — the roadblock antidote. When a solution seems impossible, it refuses to take no for an answer: classifies what kind of "no" you hit (assumption / framing / gatekeeper / tool / resource / physics), triages 3–4 lateral-thinking techniques from a 10-technique inventory (`references/techniques.md` — assumption autopsy, inversion, first principles, altitude shift, work-backwards, analogical transfer, constraint toggling, provocation, SCAMPER, interrogate-the-no), and enforces a 10-angle minimum before evaluating anything. **Agent-proactive by design**: agents run the fast path on themselves before reporting any dead end, so "that's not supported" always arrives with tried-angles receipts. Honest-exit guardrail: "the wall is load-bearing, reroute the goal" is a legitimate output, and a no from consent/law/ethics is a real no. Archives to `$MAKERSKILLS_CONFIG/unstuck/archive/` — a growing pattern library of which techniques crack *your* walls. Sits upstream of `decide` (generates options when there appear to be none; `decide` picks among them). 18 → 19 skills.
+
+---
+
+## [v1.2.0] — 2026-07-10
+
+### Fixed
+- **Archives moved out of the install tree** (closes #5; `decide`, `business-brainstorm`, `deep-research`, `personal-cfo`, `slide-deck` all → v0.2.0) — skills previously archived user state inside their own skill folder (`references/*-archive/`). Installers that re-sync skills from source (e.g. `npx skills add`) wiped the folder on upgrade, destroying the user's whole archive. Archives now live in `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/<skill>/archive/` (matching the public/private split ARCHITECTURE.md already documented), with a best-effort migration step: each skill moves old in-repo archive entries to the new location if they still exist (plugin/symlink installs keep them; an npx re-sync that already ran may have deleted them — that loss is exactly the bug this fixes going forward). Repo no longer ships INDEX.md seeds; `.gitignore` guards against old-style in-repo archives.
+- **Gender-neutral prose** — skill bodies referred to the user as "he/his/him" in 16 places across 9 files ("capture his answers," etc.). All rewritten to they/their/the user.
+- **`slide-deck` no longer hardcodes the author's identity** — the close-slide footer (`@coreyhaines · corey.co`) is now `<AUTHOR_HANDLE> · <AUTHOR_SITE>` tokens sourced from `$MAKERSKILLS_CONFIG/slide-deck/identity.yaml` (or asked once and saved); decks never ship with someone else's handle. Stray corey.co mentions genericized.
+
+*Thanks to a user bug report for all three.* 🙏
+
+---
+
+## [v1.1.0] — 2026-07-06
+
+### Added
+- **`company-brain` trust levels + review mode** (skill v0.2.0, closes #3) — answers "what stops dumped-in info from poisoning context?":
+  - `trust:` field on every structured-raw capture: `unreviewed` (default) / `verified` / `deprecated` / `superseded`. Named `trust`, not `status`, to avoid colliding with the lifecycle `status:` fields on `companies/` and `decisions/`. Files with no `trust:` field are treated as `unreviewed`.
+  - **Query trust rules** — prefer `verified` + recent; never use `deprecated`/`superseded` as context; surface conflicts; flag low-confidence answers built mostly on `unreviewed` sources.
+  - **New `/cb review` mode** — human triage queue (unreviewed captures + lint flags + lapsed review dates) with verify / deprecate / supersede / skip dispositions. Respects sensitivity levels; every non-skip disposition stamps `reviewed` + `reviewed_by`; saves a review summary to `outputs/` for an audit trail. Pair with `loopify` for a weekly cadence.
+  - **Compile trust filtering** — deprecated/superseded sources excluded from wiki pages; pages built mostly on unreviewed sources get a warning callout.
+  - **Lint check 13** — review backlog (>20 unreviewed files or no review pass in >1 month).
+  - Deprecation replaces deletion — the "never delete raw files" rule stays intact.
+
+### Fixed
+- `company-brain` lint said "same six checks as second-brain" but second-brain has seven; company-brain additions renumbered 8–13.
+- Meeting filename pattern and a `person-`/`people/` reference aligned between SKILL.md and schema.md.
+
+---
+
+## [v1.0.0] — 2026-07-06
+
+Public launch. 🚀
+
+18 skills for founders and indie operators, organized in five groups: meta (`skillify` / `toolify` / `loopify`), decision + strategy (`decide` / `business-brainstorm` / `deep-research` / `domain`), knowledge (`second-brain` / `company-brain` / `read-book` / `watch-video`), output (`jab-hook` / `slide-deck`), and operations (`pm` / `personal-cfo` / `company-cfo` / `paste` / `social-fetch`).
+
+### Changed
+- Genericized remaining brand mentions in `BACKLOG.md`, `ARCHITECTURE.md`, and `README.md` (follow-ups since v0.5.4).
+- Version bumped to 1.0.0 — no breaking changes from v0.5.4; this marks launch stability.
+
+---
+
+## [v0.5.4] — 2026-07-01
+
+### Fixed
+Three follow-up issues surfaced by `codex review` on v0.5.3:
+
+- **Missed brand mentions** — `skills/pm/references/boards.md` example row said `_example_magister_`, `skills/social-fetch/SKILL.md` + `references/output-schema.md` still cited `@coreyganim`, and `skills/watch-video/SKILL.md` + `skills/slide-deck/SKILL.md` still mentioned "Factory Floor." Genericized all four to placeholders.
+- **`/pm setup` re-introduced personal data** — the setup mode instructed the agent to save new board mappings back to `references/boards.md` in the tracked repo, which would leak real business names + board IDs. Changed to write to `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/pm/boards.md`. Repo's `references/boards.md` is now clearly marked TEMPLATE only.
+- **skillify cross-repo loop had two bugs** — (a) `yq` output includes a literal `~` in paths like `~/code/makerskills`, but the shell doesn't expand `~` inside a quoted variable, so `grep` looked under a directory called `~` and found nothing. Fixed by explicit `${raw/#\~/$HOME}` expansion. (b) The config path hardcoded `~/.config/makerskills`, ignoring users with `MAKERSKILLS_CONFIG` set to a different location. Both loops (`SKILL.md` + `references/update-propagation.md`) now honor the env var.
+
+---
+
+## [v0.5.3] — 2026-07-01
+
+### Changed
+- **Public-launch polish**: swept remaining personal brand names, partner names, and private-sibling references out of `EXAMPLES.md` and 8 skills (`business-brainstorm`, `pm`, `jab-hook`, `second-brain`, `company-brain`, `deep-research`, `personal-cfo`, `skillify`, `social-fetch`, `watch-video`) plus `ARCHITECTURE.md` and `README.md`. Placeholders (`<owner>`, `Property A`, `<person>`, etc.) replace anything user-specific.
+- **`skillify`**: sibling repo list moved out of hardcoded prose into `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/skillify/repos.yaml`. `--cross-repo` propagation now iterates over the user's declared repos instead of a fixed list.
+- **`business-brainstorm`**: portfolio-fit + distribution + opportunity-cost dimensions now load user-specific context from `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/business-brainstorm/portfolio.local.md` if present, instead of hardcoding one operator's businesses.
+- **`pm`**: board config and team/partner overlay load from `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/pm/{boards.md, team.local.md}` — repo's `references/boards.md` is now just a template.
+
+### Removed
+- Dropped inline cross-references to `cf-skills` (a private companion plugin external users can't install) from `personal-cfo`, `jab-hook`, `company-brain`, `social-fetch`, `watch-video`, and `second-brain`. Fresh users no longer see "sibling for CF agency books" style references to something they can't get.
+- Dropped `~/.claude/memory/feedback_cf_*.md` references from `jab-hook` — those are personal memory files, not portable.
+
+---
+
 ## [v0.5.0] — 2026-07-01
 
 ### Added

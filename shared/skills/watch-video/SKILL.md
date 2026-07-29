@@ -283,7 +283,7 @@ In chat:
 | YouTube | `yt-dlp` | Auto-subs (`--write-auto-sub`) | Same as the prior youtube-transcript skill |
 | Loom | `yt-dlp` (Loom supported) | Yes — fetch via embed metadata or Loom API | Async screenshare focus — prime use case |
 | Vimeo | `yt-dlp` | Sometimes | Marketing/embed videos |
-| Riverside | Direct URL from export, or local file | Yes — Riverside generates them | Factory Floor pod episodes |
+| Riverside | Direct URL from export, or local file | Yes — Riverside generates them | Podcast episodes |
 | Zoom | Local `.mp4` (downloaded recordings) | Sometimes (Zoom audio transcript file) | Client calls |
 | X / IG / TikTok | Defer to `social-fetch` for metadata, yt-dlp for file | No | Short-form |
 | Local file | n/a | n/a | Drop a path |
@@ -294,10 +294,9 @@ In chat:
 - `second-brain` — capture summary as `raw/call-<slug>.md`, `meeting-`, `note-`, or `resource-` per source type
 - `decide` — when a video contains a flagged decision, route to `/decide` for structured capture
 - `pm` — action items flagged in summary can be triaged to project boards
-- `cf-blog` (in `cf-skills`) — Factory Floor episodes: this skill replaces inline yt-dlp; outputs feed cf-blog's draft pipeline
 - `slide-deck` — talk recordings → outline extraction → deck draft (loop)
 - `jab-hook` — quotes + clip-worthy moments from podcast/talk videos feed BIP/promo posts
-- **`skillify from-video`** — primary use case for `visual` mode on process recordings. the user records himself doing a workflow (Loom/screen-share), this skill extracts transcript + key visual moments, then `skillify` synthesizes the workflow into a SKILL.md. "Record once, AI converts to skill."
+- **`skillify from-video`** — primary use case for `visual` mode on process recordings. the user records themselves doing a workflow (Loom/screen-share), this skill extracts transcript + key visual moments, then `skillify` synthesizes the workflow into a SKILL.md. "Record once, AI converts to skill."
 
 ## Error handling
 
