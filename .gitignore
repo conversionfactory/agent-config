@@ -3,3 +3,6 @@
 *.swo
 *~
 .env
+
+# Contains an example API key that trips GitHub push protection; kept local-only
+shared/skills/printing-press-retro/references/secret-scrubbing.md
