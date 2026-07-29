@@ -63,6 +63,9 @@ When provided with transcripts or survey data:
 ### CF Non-Negotiable Checklist
 - [ ] Minimum number of customer interviews or survey responses completed
 - [ ] Customer research report with direct quotes, recurring themes, and language patterns
+- [ ] Key insights documented and stored in centralized client data profile
+- [ ] High-frequency customer language extracted for use in copy
+- [ ] Report delivered to all teams via Notion
 
 ## Before Starting
 
