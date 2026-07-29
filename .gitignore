@@ -4,9 +4,6 @@
 *~
 .env
 
-# Contains an example API key that trips GitHub push protection; kept local-only
-shared/skills/printing-press-retro/references/secret-scrubbing.md
-
 # Legacy in-repo skill archives (runtime output now lives in ~/.config/makerskills/)
 shared/skills/business-brainstorm/references/ideas-archive/
 shared/skills/deep-research/references/research-archive/
