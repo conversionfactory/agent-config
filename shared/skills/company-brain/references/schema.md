@@ -70,7 +70,22 @@ Every file starts with:
 source: <URL / call with X on YYYY-MM-DD / email from Y / manual entry>
 author: <who captured this — email or handle>
 captured: YYYY-MM-DD
+trust: unreviewed       # unreviewed / verified / deprecated / superseded
 sensitivity: internal   # or leadership / confidential
+```
+
+**`trust` is deliberately not named `status`** — `companies/` and `decisions/` already use `status:` for lifecycle (prospect/customer, decided/reversed). The two fields coexist and must not collide. Files with no `trust:` field (pre-trust-levels vaults) are treated as `unreviewed`.
+
+Every `/cb review` disposition except skip stamps:
+```markdown
+reviewed: YYYY-MM-DD
+reviewed_by: <handle>
+```
+
+Verified files: `trust: verified`. Deprecated/superseded files additionally carry:
+```markdown
+trust: deprecated       # or superseded
+superseded_by: [[replacement-page-or-file]]   # superseded only
 ```
 
 For `people/` files, extend with:
@@ -180,6 +195,17 @@ Extend categories as the team's brain matures.
 
 Wiki pages inherit the *highest* sensitivity of any source. If a wiki page cites 4 `internal` sources and 1 `confidential`, the wiki page is `confidential`.
 
+## Trust levels (`trust:`)
+
+| Trust | Meaning | Query treatment | Compile treatment |
+|---|---|---|---|
+| `unreviewed` | No human has confirmed it (default for new captures; also how files with no `trust:` field are treated) | Usable but flagged — answers note lower confidence | Included; pages mostly built on it get a warning callout |
+| `verified` | Human-reviewed and confirmed | Full weight | Included |
+| `deprecated` | Wrong or obsolete | Never used as context | Excluded; noted in Sources with `reviewed` date + `reviewed_by` |
+| `superseded` | Replaced (`superseded_by: [[target]]`) | Never used; queries point to the replacement | Excluded; Sources link to replacement |
+
+Trust is orthogonal to sensitivity. Trust changes happen through `/cb review` (the human triage pass, which respects sensitivity — reviewers only see files at or below their level) — capture always starts at `unreviewed`.
+
 ## Rules
 
 - **One page per concept** — not per source. Multiple raw files about the same customer merge into one wiki page.
@@ -191,6 +217,8 @@ Wiki pages inherit the *highest* sensitivity of any source. If a wiki page cites
 - **Preserve nuance** — don't flatten contradictions between authors' captures; note the disagreement
 - **Multi-author attribution required** in Sources sections
 - **Sensitivity respected** in query mode
+- **Deprecate, don't delete** — wrong/stale info gets `trust: deprecated` (or `superseded` + pointer), never removed
+- **Trust respected end-to-end** — deprecated/superseded content never used as context in query or compile
 
 ## Publishing (same as second-brain)
 
