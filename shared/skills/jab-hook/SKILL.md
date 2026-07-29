@@ -38,7 +38,7 @@ If ambiguous, confirm.
 2. Read `references/voice.md` — the user's voice rules per platform
 3. Read `references/content-types.md` — templates for promo / BIP / educational
 4. Pull recent posts from your personal Typefully workspace:
-   - First run: call `mcp__typefully__typefully_list_social_sets` and ask which social set is your personal (X + LinkedIn). Save the ID to `references/typefully-config.md` for future runs.
+   - First run: call `mcp__typefully__typefully_list_social_sets` and ask which social set is your personal (X + LinkedIn). Save the ID to `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/jab-hook/typefully.yaml` for future runs (schema in `references/typefully-config.example.yaml` — never save it inside the skill folder; upgrades wipe it).
    - Call `mcp__typefully__typefully_list_drafts` filtered to the last 30 days
    - Classify each as promo / BIP / educational by content
 5. Compute **days since last promo** for each of the 6 slots
@@ -80,7 +80,7 @@ For `promo` and `educational` posts, optionally scan inspiration accounts (`refe
 2. Pull recent posts (agent-browser if it works on LinkedIn; otherwise ask the user to paste examples or fall back to their X/newsletter)
 3. Extract structural patterns: hook openers, post length, line-break rhythm, CTA styles
 4. Apply ONE pattern to the user's voice — never mimic phrasing
-5. Log new patterns in `references/patterns.md` (create if missing) so they accumulate
+5. Log new patterns in `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/jab-hook/patterns.local.md` (create if missing) so they accumulate — `references/patterns.md` documents the starter patterns and stays read-only
 
 Skip inspiration scan when the user says "just draft it" or when iterating on an existing post.
 
@@ -89,7 +89,7 @@ Skip inspiration scan when the user says "just draft it" or when iterating on an
 Ask: *"Push to Typefully now? (X + LinkedIn, your personal workspace)"*
 
 If yes:
-1. Read social set ID from `references/typefully-config.md`
+1. Read social set ID from `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/jab-hook/typefully.yaml` (setup notes in `references/typefully-config.md`)
 2. Call `mcp__typefully__typefully_create_draft` once for X, once for LinkedIn (or once with both platforms if the social set spans both)
 3. If the draft has a first-comment link, configure Typefully to add it automatically (LinkedIn auto-comment / X reply). If the MCP doesn't support auto-comment for one of the platforms, surface the comment text so the user can paste it after publishing.
 4. Default to **draft** state (not scheduled) — the user reviews in Typefully UI before sending
@@ -101,7 +101,6 @@ If yes:
 - `social-fetch` — pull inspiration-account posts for structural analysis (replaces inline agent-browser)
 - `second-brain` — the `Content Ideas` wiki page hoppers hooks, frameworks, stories; `/jab-hook` drafts pull candidates from there
 - `deep-research` — when a promo needs a stat or citation the draft doesn't have yet
-- `cf-skills:x-li` (external plugin) — for CF partner-account syndication. Use that when the post should land on agency accounts.
 - `marketingskills:social` — generic social frameworks, useful when teaching strategy vs shipping your own posts
 - `marketingskills:copywriting` — for hook / headline ideation when stuck
 
@@ -111,12 +110,11 @@ If yes:
 - **Never mimic phrasing from inspiration accounts.** Extract *structure* (hook opener type, line-break rhythm, CTA style) and apply to your own voice. Voice is the moat; copying phrasing destroys it.
 - **Links belong in first comments, not the body** for LinkedIn + X. Documented in `~/.claude/memory/feedback_social_link_placement.md`. Body posts with inline URLs get algorithm-suppressed on both platforms.
 - **Draft state, not scheduled state.** Every Typefully push defaults to draft — human review in the Typefully UI before publish is non-negotiable. Automated scheduling of unreviewed drafts has repeatedly produced posts the user regrets.
-- **Reader-perspective framing.** *"You'll know X"* not *"we'll teach you X."* *"What you're guaranteed"* not *"what we'd guarantee."* Documented in `~/.claude/memory/feedback_cf_promo_voice.md`.
+- **Reader-perspective framing.** *"You'll know X"* not *"we'll teach you X."* *"What you're guaranteed"* not *"what we'd guarantee."*
 - **Voice.local.md overrides the shipped voice.md.** Personal voice rules never live in the public repo — always in `${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/jab-hook/voice.local.md`.
-- **Cadence cap: 2 posts/day per platform, per account.** More than that degrades reach + reads as spam. Documented in `~/.claude/memory/feedback_cf_social_cadence.md`.
+- **Cadence cap: 2 posts/day per platform, per account.** More than that degrades reach + reads as spam.
 
 ## Memory references
 
-- `~/.claude/memory/feedback_cf_promo_voice.md` — conviction-coded CTAs + reader-perspective framing
-- `~/.claude/memory/feedback_cf_social_cadence.md` — 2 posts/day per platform cap
-- Memory: `feedback_cf_social_cadence.md` — CF-specific cap of 2 posts/day per platform. Same cap is sensible for your personal account.
+- `~/.claude/memory/feedback_promo_voice.md` (if present) — conviction-coded CTAs + reader-perspective framing
+- `~/.claude/memory/feedback_social_cadence.md` (if present) — cadence cap (e.g., 2 posts/day per platform)

@@ -7,7 +7,7 @@ metadata:
 
 # /second-brain — Karpathy LLM Wiki workflow
 
-Wraps an existing Second Brain in Obsidian (or any markdown-based vault). The wiki vault's CLAUDE.md is the authoritative schema — the skill orchestrates the operations he's been doing manually.
+Wraps an existing Second Brain in Obsidian (or any markdown-based vault). The wiki vault's CLAUDE.md is the authoritative schema — the skill orchestrates the operations the user has been doing manually.
 
 ## Mental model
 
@@ -131,7 +131,7 @@ Find pages that should be linked but aren't.
 
 ### search
 
-Quick grep across `wiki/` + `raw/` for a term. Return matching files with a 2-line excerpt around the match. Faster than `query` when the user knows what page he's looking for.
+Quick grep across `wiki/` + `raw/` for a term. Return matching files with a 2-line excerpt around the match. Faster than `query` when the user knows what page they're looking for.
 
 ## Composes with
 
@@ -142,7 +142,6 @@ Quick grep across `wiki/` + `raw/` for a term. Return matching files with a 2-li
 - `jab-hook` — a `Content Ideas` wiki page hoppers hooks, frameworks, and stories. `/jab-hook` drafts pull candidates from there.
 - `slide-deck` — content drafted in `outputs/` becomes deck source; speaker notes can reference relevant wiki pages.
 - `pm` — Projects/ folder in the vault is off-limits to second-brain; pm owns it. But a `Workflow Docs` wiki page captures operational patterns that show up across multiple projects.
-- `cf-blog` (in `cf-skills`) — pulls from `Content Ideas` and `Customer Language` wiki pages for blog drafts.
 
 ## Sibling implementations (reference)
 

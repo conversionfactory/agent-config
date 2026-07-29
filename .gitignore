@@ -3,3 +3,9 @@
 *.swo
 *~
 .env
+
+# Legacy in-repo skill archives (runtime output now lives in ~/.config/makerskills/)
+shared/skills/business-brainstorm/references/ideas-archive/
+shared/skills/deep-research/references/research-archive/
+shared/skills/decide/references/decisions-archive/
+shared/skills/personal-cfo/references/scenarios-archive/

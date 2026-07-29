@@ -1,6 +1,6 @@
 ---
 name: social-fetch
-description: When you or another skill needs to fetch the content of a social media post by URL — tweet, X thread, LinkedIn post, Instagram post, TikTok video, Bluesky post, Reddit thread, Mastodon status, Threads post, Hacker News thread. Returns normalized structured data (author, posted_at, text, engagement counts, media URLs, replies if requested) regardless of platform. Tries strategies in order: direct API (Bluesky, Mastodon, HN, Reddit), agent-browser with modal dismissal (LinkedIn, X preview), Wayback Machine (older posts), paid APIs (ScrapeCreators / Apify — only if env keys present). Triggers on "/social-fetch <url>," "fetch this tweet," "fetch this post," "what does this LinkedIn say," "read this thread," "pull this post." Used by deep-research (citing specific posts), jab-hook (inspiration account analysis), business-brainstorm (competitor / operator commentary), cf-blog (sourcing from social).
+description: "When you or another skill needs to fetch the content of a social media post by URL — tweet, X thread, LinkedIn post, Instagram post, TikTok video, Bluesky post, Reddit thread, Mastodon status, Threads post, Hacker News thread. Returns normalized structured data (author, posted_at, text, engagement counts, media URLs, replies if requested) regardless of platform. Tries strategies in order: direct API (Bluesky, Mastodon, HN, Reddit), agent-browser with modal dismissal (LinkedIn, X preview), Wayback Machine (older posts), paid APIs (ScrapeCreators / Apify — only if env keys present). Triggers on \"/social-fetch <url>,\" \"fetch this tweet,\" \"fetch this post,\" \"what does this LinkedIn say,\" \"read this thread,\" \"pull this post.\" Used by deep-research (citing specific posts), jab-hook (inspiration account analysis), business-brainstorm (competitor / operator commentary)."
 metadata:
   version: 0.1.1
 ---
@@ -53,11 +53,11 @@ Return this shape regardless of platform (see `references/output-schema.md` for 
 ```json
 {
   "platform": "x",
-  "url": "https://x.com/coreyganim/status/2067289417803538931",
+  "url": "https://x.com/example/status/1234567890",
   "fetched_at": "2026-06-17T14:35:00Z",
   "raw_source": "scrapecreators",
   "author": {
-    "handle": "@coreyganim",
+    "handle": "@example",
     "name": "the user Ganim",
     "verified": true
   },
@@ -103,7 +103,6 @@ Skip cache if `--no-cache` flag is set or for `--with-replies` / `--thread` (lik
 - `deep-research` — cite specific posts in research briefs. When research surfaces a relevant tweet/post URL, fetch and include in the brief.
 - `jab-hook` — pull recent posts from inspiration accounts for deeper format analysis (currently uses agent-browser inline; should call this skill instead).
 - `business-brainstorm` — pull competitor / operator commentary as evidence during scoring.
-- `cf-blog` (in `cf-skills`) — source content from a viral tweet / LinkedIn post for blog draft.
 - `second-brain` — capture a post into `raw/` with the `tweet-` / `bookmark-` prefix; the structured output makes for cleaner raw files than a screenshot or copy-paste.
 - `watch-video` — for YouTube URLs (or any video — Loom, Vimeo, Riverside, MP4), route there instead.
 
@@ -120,7 +119,7 @@ If a platform consistently fails on free strategies and the user uses it often, 
 ## Notes on quality
 
 - **Strategy chain, not single-source.** Every platform has a fallback ladder (native oEmbed → agent-browser → SCS API → Apify). If one step fails, degrade gracefully to the next. Never fail hard on the first attempt.
-- **Structured output over screenshots.** Downstream skills (jab-hook, deep-research, second-brain, cf-blog) need JSON with author + text + engagement fields, not an image. Even when the underlying strategy is a screenshot, extract text before returning.
+- **Structured output over screenshots.** Downstream skills (jab-hook, deep-research, second-brain) need JSON with author + text + engagement fields, not an image. Even when the underlying strategy is a screenshot, extract text before returning.
 - **Cache aggressively, invalidate honestly.** 24h TTL on `~/Documents/social-fetches/_cache/` prevents API burn when the same post is referenced across multiple skills in a session. `--with-replies` / `--thread` skip cache because replies age fast.
 - **Respect paid-key economics.** ScrapeCreators / Apify calls cost real money. Prompt before hitting paid strategies if the user hasn't confirmed they want depth. Free strategies first, always.
 - **Media download is opt-in.** Default is post text only; `--media` downloads images/videos. Silent media downloads eat disk quickly.
