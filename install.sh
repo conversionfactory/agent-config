@@ -150,6 +150,57 @@ install_cursor() {
   log "Cursor configured!"
 }
 
+# ─── Vault skill mirror ────────────────────────────────────────
+
+# Skills mirrored into the second-brain vault repo.
+#
+# Claude Code cloud sessions run against a single repo, so a session opened on
+# the vault needs its own copy of the skills that operate on it. Empty this
+# array to turn the mirror off.
+VAULT_SKILLS=(second-brain)
+
+mirror_vault_skills() {
+  local vault="${SECOND_BRAIN_VAULT:-}"
+  [ -n "$vault" ] || return 0
+
+  if [ ! -d "$vault/.git" ]; then
+    warn "SECOND_BRAIN_VAULT set but not a git repo — skipping vault skill mirror"
+    return 0
+  fi
+
+  # Guard the expansion below: bash 3.2 (macOS) errors on "${empty[@]}" under set -u
+  [ ${#VAULT_SKILLS[@]} -gt 0 ] || return 0
+
+  info "Mirroring skills into vault: $vault"
+  mkdir -p "$vault/.agents/skills" "$vault/.claude/skills"
+
+  local skill src dest
+  for skill in "${VAULT_SKILLS[@]}"; do
+    src="$SCRIPT_DIR/shared/skills/$skill"
+    dest="$vault/.agents/skills/$skill"
+
+    if [ ! -d "$src" ]; then
+      warn "  $skill — not in shared/skills, skipping"
+      continue
+    fi
+
+    # The mirror is one-way, so say so before clobbering rather than after.
+    # An uncommitted edit to the vault copy is reverted here and would leave
+    # nothing behind in git status for a later check to notice.
+    if [ -d "$dest" ] && ! diff -rq "$src" "$dest" >/dev/null 2>&1; then
+      warn "  $skill — vault copy differs, overwriting from shared/skills/"
+    fi
+
+    rsync -a --delete "$src/" "$dest/"
+    ln -sfn "../../.agents/skills/$skill" "$vault/.claude/skills/$skill"
+    log "  $skill"
+  done
+
+  if git -C "$vault" status --porcelain -- .agents/skills .claude/skills | grep -q .; then
+    warn "Vault skills committed copy is out of date — commit and push in $vault"
+  fi
+}
+
 # ─── Main ─────────────────────────────────────────────────────
 
 main() {
@@ -248,6 +299,9 @@ main() {
       cursor) install_cursor ;;
     esac
   done
+
+  # Vault skill mirror (independent of which tools were selected)
+  mirror_vault_skills
 
   # Summary
   echo ""

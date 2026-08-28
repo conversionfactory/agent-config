@@ -75,3 +75,4 @@ for tool in "${TOOLS[@]}"; do
 done
 
 "$REPO_DIR/install.sh" "${FLAGS[@]}"
+
