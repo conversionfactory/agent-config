@@ -76,33 +76,3 @@ done
 
 "$REPO_DIR/install.sh" "${FLAGS[@]}"
 
-# Mirror skills into the second-brain vault repo
-#
-# Claude Code cloud sessions run against a single repo, so a session on the
-# vault needs its own copy of the skills that operate on it. Skip silently
-# when SECOND_BRAIN_VAULT is unset — not everyone keeps a vault.
-VAULT_SKILLS=(second-brain)
-
-if [ -n "${SECOND_BRAIN_VAULT:-}" ] && [ -d "$SECOND_BRAIN_VAULT/.git" ]; then
-  echo ""
-  info "Mirroring skills into vault: $SECOND_BRAIN_VAULT"
-
-  for skill in "${VAULT_SKILLS[@]}"; do
-    src="$REPO_DIR/shared/skills/$skill"
-    if [ ! -d "$src" ]; then
-      warn "  $skill — not found in shared/skills, skipping"
-      continue
-    fi
-
-    mkdir -p "$SECOND_BRAIN_VAULT/.agents/skills" "$SECOND_BRAIN_VAULT/.claude/skills"
-    rsync -a --delete "$src/" "$SECOND_BRAIN_VAULT/.agents/skills/$skill/"
-    ln -sfn "../../.agents/skills/$skill" "$SECOND_BRAIN_VAULT/.claude/skills/$skill"
-    log "  $skill"
-  done
-
-  if git -C "$SECOND_BRAIN_VAULT" status --porcelain -- .agents/skills .claude/skills | grep -q .; then
-    warn "Vault skills changed — commit and push in $SECOND_BRAIN_VAULT"
-  fi
-elif [ -n "${SECOND_BRAIN_VAULT:-}" ]; then
-  warn "SECOND_BRAIN_VAULT set but not a git repo — skipping vault skill mirror"
-fi
