@@ -1,8 +1,8 @@
 ---
 name: company-brain
-description: Your team's shared, AI-ready knowledge base — people, companies, meetings, SOPs, and decisions structured so Claude can answer questions on your team's behalf. Team-scope sibling to second-brain (which is personal-scope). Seven modes — capture (drop something into the right structured dir), compile (process into wiki pages, update INDEX.md), query (answer from the corpus with trust weighting, save to outputs/), review (triage queue — verify / deprecate / supersede unreviewed and stale captures so wrong info never becomes context), lint (orphans / stale / contradictions / gaps), connect (suggest new wikilinks), search (quick lookup). Structured raw dirs (people/, companies/, meetings/, sops/, decisions/, customer-language/, recurring-questions/, sales-objections/) instead of second-brain's flat type-prefixed raw/. Multi-author aware — every capture stamps author + timestamp + trust status. Optional auto-sync from Fathom/Gong/Granola call transcripts, Slack/email exports, CRM. Defaults to a vault at ${COMPANY_BRAIN_VAULT:-$HOME/Documents/CompanyBrain}/. Triggers on "/company-brain," "/cb," "capture this into the team brain," "log this meeting," "add this person to the team brain," "save this SOP," "compile the company wiki," "query the team brain," "what does the team know about X," "review the company brain," "cull the team brain," "lint the company brain," "who's the internal expert on X."
+description: Your team's shared, AI-ready knowledge base — people, companies, meetings, SOPs, and decisions structured so an agent can answer on your team's behalf. Team-scope sibling to second-brain — personal notes go there, not here. Modes — capture, compile (wiki pages + INDEX.md), query (trust-weighted, saved to outputs/), review (verify / deprecate / supersede stale captures), lint, connect, search. Structured raw dirs (people/, companies/, meetings/, sops/, decisions/, customer-language/, sales-objections/). Every capture stamps author, timestamp, and trust status. Optional sync from call transcripts, Slack/email exports, CRM. Vault at ${COMPANY_BRAIN_VAULT:-$HOME/Documents/CompanyBrain}/. Triggers on "/company-brain," "/cb," "capture this into the team brain," "log this meeting," "save this SOP," "compile the company wiki," "query the team brain," "what does the team know about X," "review the company brain," "lint the company brain," "who's the internal expert on X."
 metadata:
-  version: 0.2.0
+  version: 0.4.0
 ---
 
 # /company-brain — Team-shared AI-ready knowledge base
@@ -83,13 +83,13 @@ Deliberately an enum, not a numeric weight — teams keep a four-value field cur
 
 Trust is orthogonal to sensitivity — a file can be `verified` + `confidential`, or `unreviewed` + `internal`.
 
-**Existing vaults**: files predating trust levels simply lack the `trust:` field — treat them as `unreviewed`. If the vault's `CLAUDE.md` schema predates trust levels, offer to add the trust spec to it on the first `/cb review` run (the vault's CLAUDE.md stays authoritative — extend it, don't override it).
+**Existing vaults**: files predating trust levels simply lack the `trust:` field — treat them as `unreviewed`. If the vault's schema doc (`CLAUDE.md` / `AGENTS.md`) predates trust levels, offer to add the trust spec to it on the first `/cb review` run (the vault's CLAUDE.md stays authoritative — extend it, don't override it).
 
 ## Step 1 — Load vault config + schema
 
 1. Read `references/vault-config.md` for the vault path (default: `${COMPANY_BRAIN_VAULT:-$HOME/Documents/CompanyBrain}/`)
-2. Read `<vault>/CLAUDE.md` for the authoritative team schema. If present, trust it over `references/schema.md` — the team's vault is the source of truth.
-3. If no `<vault>/CLAUDE.md`, fall back to `references/schema.md` — the team schema starter kit.
+2. Read the vault's schema doc — `<vault>/CLAUDE.md` or `<vault>/AGENTS.md`, whichever exists (if both, read both) — for the authoritative team schema. If present, trust it over `references/schema.md` — the team's vault is the source of truth.
+3. If neither exists, fall back to `references/schema.md` — the team schema starter kit.
 
 ## Step 2 — Parse mode
 
@@ -119,6 +119,7 @@ Trust is orthogonal to sensitivity — a file can be `verified` + `confidential`
    - Question asked in a call → `recurring-questions/<question-slug>.md` (append counter if repeat)
    - Sales objection heard → `sales-objections/<objection-slug>.md` (append variant if repeat)
    - If ambiguous, ask.
+   - If the target dir doesn't exist yet, create it with this capture. New vaults start with only one pilot workflow's dirs (see `references/vault-config.md` → "Start narrow").
 
 2. **Add multi-author metadata** (top of file):
    ```markdown
@@ -220,6 +221,18 @@ Team vaults benefit from automated capture. See `references/auto-sync-sources.md
 
 Auto-sync is optional — most teams start with manual capture and add automation as the vault matures. Pair with `loopify` to schedule periodic sync jobs.
 
+## Multi-writer git sync (team members + remote agents)
+
+A team vault is multi-writer by definition, and git is the coordination layer. Back the vault with a hosted remote (GitHub/GitLab); the remote then doubles as a **capture API for agents without filesystem access** — cloud agents, scheduled sync jobs, teammates' machines. Anything that can reach the git host's API (directly, or through an MCP integration layer like [Executor](https://executor.sh)) can read the wiki and commit captures into the structured raw dirs.
+
+The discipline that keeps writers from diverging:
+
+1. **Every local session pulls before writing**: `git pull --rebase --autostash` before vault work, push after committing. With multiple humans *and* agents committing, local copies go stale fast.
+2. **Obsidian users**: the community **Git** plugin with auto-pull on an interval (~10 min) + pull-on-startup, auto-commit **off** — commits should stay semantic (one per capture/compile), not "vault backup" noise. Every team member's machine needs this, not just one.
+3. **Remote agents and auto-sync jobs commit append-mostly**: new files in the structured dirs, descriptive commit messages, author stamped in the capture frontmatter (the multi-author trust model depends on it). Distinct-file appends make conflicts rare; rebase absorbs the rest.
+
+Verify the loop once per machine when onboarding: remote commit via API → local pull → file appears.
+
 ## Composes with
 
 - **`second-brain`** — sibling. Use `second-brain` for your personal wiki; `company-brain` for the team's. A person can maintain both simultaneously with separate vault paths.
@@ -228,7 +241,7 @@ Auto-sync is optional — most teams start with manual capture and add automatio
 - **`toolify`** — wire up integrations that feed the company brain (Fathom webhook receiver, Attio API, etc.).
 - **`deep-research`** — when `query` finds gaps, route external. Save deep-research results into `raw/` for future compilation.
 - **`decide`** — `decisions/` folder complements `decide`'s structured archive. `decide` records the *evaluation*; `decisions/` records the *narrative + outcome + review notes*.
-- **`pm`** — team task management sits in `Projects/` (reserved from company-brain). `pm` owns Projects/; company-brain reads it for context but doesn't modify.
+- **`project-manager`** — team task management sits in `Projects/` (reserved from company-brain). `project-manager` owns Projects/; company-brain reads it for context but doesn't modify.
 - **`jab-hook`** — `customer-language/` fuels social copy that resonates with actual prospect language.
 - A blog-drafting skill (yours or a companion plugin) — pulls from `customer-language/`, `recurring-questions/`, and `sops/` for authoritative blog drafts.
 
@@ -247,6 +260,7 @@ Same lineage as `second-brain`:
 - **Sensitivity is respected end-to-end.** Query mode refuses to include content above the invoker's level. Wiki pages inherit the highest sensitivity of any source.
 - **Never delete raw files.** Same rule as second-brain — the structured dirs are the source of truth. When info is wrong or stale, **deprecate, don't delete** — `trust: deprecated` removes it from context while preserving history.
 - **Capture freely, weight deliberately.** The trust enum means dumping information in is safe — nothing unreviewed poisons answers at full weight, and `/cb review` is the regular cull that promotes or retires it.
+- **Start narrow, earn the right to expand.** Seed one revenue-adjacent workflow's dirs, pilot with one or two people, and widen only once queries are getting answered and review is holding. See `references/rollout.md`.
 - **Never modify** `Projects/`, `Team/`, `Templates/`, `Drafts/` during company-brain operations.
 - **Auto-sync is optional.** Start manual; automate as the vault matures. Don't burn cycles on Fathom webhooks before the team is capturing meetings regularly by hand.
 - **One person shouldn't be the whole vault.** If lint flags author-load imbalance >80%, the team is one bus-factor away from losing the brain. Broaden contribution.

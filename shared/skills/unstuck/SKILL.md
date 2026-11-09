@@ -1,8 +1,8 @@
 ---
 name: unstuck
-description: "When a solution seems impossible and the path forward is blocked — the antidote to any roadblock or wall. Refuses to take no for an answer: classifies what kind of \"no\" you actually hit, then runs targeted lateral-thinking techniques (assumption autopsy, inversion, first principles, constraint toggling, analogical transfer, and more from a 10-technique inventory) until the wall cracks or is proven load-bearing. Generates a minimum of 10 angles before evaluating any. AGENTS: use this on yourself mid-task — when an API doesn't support what you need, an approach has failed twice, or a \"that's not possible\" / \"the only option is\" sentence is forming in your response, run the fast path BEFORE reporting a dead end; every dead-end report should arrive with tried-angles receipts. Archives every wall to ~/.config/makerskills/unstuck/archive/ so you learn which techniques crack YOUR walls. Sits upstream of decide: turns \"impossible\" into 2–3 viable angles, then decide picks one. Triggers on \"/unstuck,\" \"I'm stuck,\" \"this seems impossible,\" \"we hit a wall,\" \"there's no way to,\" \"they said no,\" \"dead end,\" \"out of options,\" \"I've tried everything,\" \"work around this,\" \"think outside the box.\""
+description: "When a solution seems impossible and the path forward is blocked. Refuses to take no for an answer: classifies what kind of \"no\" you hit, then runs lateral-thinking techniques (assumption autopsy, inversion, first principles, constraint toggling, analogical transfer, and more) until the wall cracks or is proven load-bearing. Generates at least 10 angles before evaluating any. AGENTS: use this on yourself when an API doesn't support what you need, an approach has failed twice, or a \"that's not possible\" sentence is forming — run the fast path BEFORE reporting a dead end. Archives walls to ~/.config/makerskills/unstuck/archive/. Sits upstream of decide. Triggers on \"/unstuck,\" \"I'm stuck,\" \"this seems impossible,\" \"we hit a wall,\" \"there's no way to,\" \"they said no,\" \"dead end,\" \"out of options,\" \"I've tried everything,\" \"work around this.\""
 metadata:
-  version: 0.1.0
+  version: 0.1.1
 ---
 
 # /unstuck — The roadblock antidote
@@ -140,7 +140,7 @@ The success metric: the user stops seeing dead-end reports without tried-angles 
 - `decide` — downstream: 2+ mutually exclusive viable angles become a `/decide` fork. Upstream: decide's Q19 ("what missing info would change it?") can route here when the missing thing is an *option*, not information.
 - `deep-research` — "needs research" angles route there; the brief comes back and re-enters Step 5.
 - `business-brainstorm` — its "angle to steal" move on Kill verdicts is this skill applied to business ideas.
-- `pm` — a committed angle becomes a board task.
+- `project-manager` — a committed angle becomes a board task.
 - `second-brain` — archive entries can compile into a "walls I've broken" wiki page.
 
 ## Guardrails

@@ -49,7 +49,7 @@ For each grep hit, read the matching section and ask: *is this rule actually app
 
 Some learnings won't have keyword matches but logically apply. Manually scan the list of all skills and ask: *does this rule apply here even if the keyword isn't present?*
 
-Example: a "voice should be spoken aloud" rule won't grep-match in `pm` (project management skill — no voice content), but it applies in any skill that produces user-facing text (`slide-deck`, `jab-hook`, `read-book` summaries, `create-skill` output).
+Example: a "voice should be spoken aloud" rule won't grep-match in `project-manager` (project management skill — no voice content), but it applies in any skill that produces user-facing text (`slide-deck`, `jab-hook`, `read-book` summaries, `create-skill` output).
 
 Use the skill's *output type* as the heuristic:
 - **Writes user-facing text** (drafts posts, slides, summaries): voice rules apply
@@ -74,7 +74,7 @@ Present to the user before proposing any diffs:
 - `<skill4>` — keyword present but in unrelated context
 
 ### Memory candidate (cross-cutting principle?)
-- Yes / no. If yes, suggested path: `~/.claude/memory/feedback_<slug>.md`
+- Yes / no. If yes, suggested path: `feedback_<slug>.md` in the memory store (agent memory, or `${MAKERSKILLS_MEMORY:-${MAKERSKILLS_CONFIG:-$HOME/.config/makerskills}/memory}/`)
 
 **Proceed with high-confidence diffs? Approve / edit / skip each.**
 ```

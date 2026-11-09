@@ -48,11 +48,15 @@ cd "$COMPANY_BRAIN_VAULT"
 git init
 git remote add origin git@github.com:mycompany/company-brain.git
 
-# 4. Create structured raw dirs
-mkdir -p people companies meetings sops decisions customer-language recurring-questions sales-objections raw wiki outputs Projects Team Templates Drafts
+# 4. Create the base dirs, plus ONLY the pilot workflow's dirs (see "Start narrow" below)
+mkdir -p raw wiki outputs Projects Team Templates Drafts
+mkdir -p meetings sales-objections customer-language   # e.g. a Sales pilot
+touch meetings/.gitkeep sales-objections/.gitkeep customer-language/.gitkeep   # git doesn't track empty dirs; teammates' clones need them
 
-# 5. Seed CLAUDE.md (copy from ~/code/makerskills/skills/company-brain/references/schema.md as starting point)
-cp ~/code/makerskills/skills/company-brain/references/schema.md CLAUDE.md
+# 5. Seed the schema doc from this skill's references/schema.md (path depends on where your agent installed the skill)
+#    AGENTS.md is read by Codex, Cursor, and most hosts; the symlink covers Claude Code
+cp <skill-dir>/references/schema.md AGENTS.md
+ln -s AGENTS.md CLAUDE.md
 
 # 6. Seed INDEX.md
 echo "# Wiki Index\n\n## Sales\n\n## Customers\n\n## Ops\n\n## Product\n\n## Team & People\n\n## Decisions\n\n## Playbooks" > wiki/INDEX.md
@@ -70,6 +74,19 @@ EOF
 git add . && git commit -m "Seed company brain schema"
 git push -u origin main
 ```
+
+### Start narrow
+
+Don't seed all eight structured dirs on day one. Pick the **one workflow closest to revenue** and seed only its dirs:
+
+| Pilot workflow | Dirs to seed |
+|---|---|
+| Sales | `meetings/` + `sales-objections/` + `customer-language/` |
+| Content / marketing | `customer-language/` + `recurring-questions/` + `sops/` |
+| Ops / delivery | `sops/` + `decisions/` + `meetings/` |
+| Reporting | `decisions/` + `companies/` + `meetings/` |
+
+Other dirs get created by the first capture that needs one. Fewer dirs means a smaller review queue, so the review habit sticks before volume arrives. The brain earns the right to touch more. See [rollout.md](rollout.md) for widening it beyond the pilot group.
 
 ## Sensitivity access lists (optional)
 
