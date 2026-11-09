@@ -2,8 +2,8 @@
 
 Vendored from [`coreyhaines31/makerskills`](https://github.com/coreyhaines31/makerskills).
 
-- Plugin version: `1.4.0`
-- Upstream commit: `17218de201e94f7aebe8b0ddfb507175caf37343`
+- Plugin version: `1.14.0`
+- Upstream commit: `e706270989ee1353a4166a3cf02462bde1268c84`
 - Skills copied from upstream `skills/*` into `shared/skills/`
 - Source changelog and license live in `shared/makerskills/`
 
