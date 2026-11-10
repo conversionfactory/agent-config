@@ -9,13 +9,15 @@ CMD=$(echo "$INPUT" | jq -r '.tool_input.command // ""')
 # Match `gh pr merge` anywhere in the command, not just at the start of a line.
 # The old anchor (^\s*gh) meant `cd /somewhere && gh pr merge 14` slipped past
 # the guardrail entirely — a silent bypass, not just a bad error message.
-echo "$CMD" | grep -qE '(^|[;&|]|\s)gh[[:space:]]+pr[[:space:]]+merge\b' || exit 0
+# Mentions don't count: heredoc bodies and quoted text are ignored unless they
+# run as code (lib/strip-command.py).
+source "$(dirname "$0")/lib/merge-target.sh"
+is_merge_command "$CMD" || exit 0
 
 # Look the PR up in its own repo: the session's working directory is often a
 # different checkout (a `cd` prefix, -R, or parallel agents in one session).
 # The shared parser only reads arguments after the merge command, so digits in
 # a `cd /tmp/claude-501/...` prefix are never taken for a PR number.
-source "$(dirname "$0")/lib/merge-target.sh"
 resolve_merge_target "$INPUT"
 PR_NUM=$MERGE_PR
 
