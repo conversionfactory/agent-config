@@ -23,7 +23,7 @@ fi
 PLAN_CONTENT=$(cat "$PLAN_FILE")
 
 # Get Codex's review
-REVIEW=$(codex exec --dangerously-bypass-approvals-and-sandbox "You are reviewing a plan that Claude Code created. Analyze it for:
+REVIEW=$(codex exec --sandbox read-only --skip-git-repo-check "You are reviewing a plan that Claude Code created. Analyze it for:
 
 1. Potential issues or risks
 2. Missing steps or considerations
