@@ -4,7 +4,8 @@
 Heredoc bodies are dropped and quoted strings are emptied, so a command that
 only *mentions* `gh pr merge` (a PR body, a commit message, an echo) isn't
 treated as a merge. Text that runs as code is kept: heredocs fed to a shell,
-and quoted strings after `bash -c` / `eval`. A quoted path after `cd` is kept
+quoted strings after `bash -c` / `eval`, and double-quoted strings holding
+`$(...)` or backticks. A quoted path after `cd` is kept
 too, because the merge hooks need it to find the repo.
 """
 import re
@@ -30,6 +31,10 @@ def split_heredocs(text):
         i += 1
         is_code = bool(SHELL_HEREDOC.search(line))
         for _, tag in HEREDOC.findall(line):
+            # No terminator later on: not a real heredoc (e.g. `<<EOF` inside
+            # quoted text), so don't swallow the lines after it.
+            if not any(rest.strip() == tag for rest in lines[i:]):
+                continue
             body = []
             while i < len(lines) and lines[i].strip() != tag:
                 body.append(lines[i])
@@ -53,7 +58,10 @@ def empty_quotes(text):
             j = i + 1
             while j < n and text[j] != ch:
                 j += 2 if ch == '"' and text[j] == "\\" else 1
-            keep = KEEP_QUOTED.search("".join(out))
+            body = text[i + 1:j]
+            # `$(...)` and backticks run even inside double quotes.
+            runs = ch == '"' and ("$(" in body or "`" in body)
+            keep = runs or KEEP_QUOTED.search("".join(out))
             out.append(text[i:j + 1] if keep else "''")
             i = j + 1
             continue
