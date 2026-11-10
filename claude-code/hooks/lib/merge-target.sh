@@ -24,11 +24,31 @@ review_marker_path() {
   echo "$HOME/.claude/.review-passed-$(echo "$1" | tr '/' '-')--$(echo "$2" | tr '/' '-')"
 }
 
+MERGE_TARGET_LIB_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+# The command with heredoc bodies and quoted text removed (cd paths kept), so
+# a command that only mentions `gh pr merge` isn't read as a merge.
+# Falls back to the raw command if python3 is missing or fails, so the guards
+# over-block rather than switch off.
+clean_command() {
+  local out
+  if out=$(printf '%s' "$1" | python3 "$MERGE_TARGET_LIB_DIR/strip-command.py" 2>/dev/null); then
+    printf '%s\n' "$out"
+  else
+    printf '%s\n' "$1"
+  fi
+}
+
+# True when the command actually runs `gh pr merge`.
+is_merge_command() {
+  clean_command "$1" | grep -qE "(^|[;&|(\`'\"]|[[:space:]])gh[[:space:]]+pr[[:space:]]+merge\b"
+}
+
 # Sets MERGE_DIR, MERGE_REPO, MERGE_PR, MERGE_HEAD for a hook's JSON input.
 # MERGE_PR/MERGE_HEAD stay empty when the PR can't be looked up.
 resolve_merge_target() {
   local input="$1" cmd before args sel cd_arg
-  cmd=$(echo "$input" | jq -r '.tool_input.command // ""')
+  cmd=$(clean_command "$(echo "$input" | jq -r '.tool_input.command // ""')")
   MERGE_DIR=$(echo "$input" | jq -r '.cwd // empty')
   [ -n "$MERGE_DIR" ] || MERGE_DIR=$PWD
 

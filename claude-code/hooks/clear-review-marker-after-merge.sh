@@ -4,9 +4,10 @@
 
 INPUT=$(cat)
 CMD=$(echo "$INPUT" | jq -r '.tool_input.command // ""')
-echo "$CMD" | grep -qE '(^|[;&|]|\s)gh[[:space:]]+pr[[:space:]]+merge\b' || exit 0
-
+# Mentions in heredoc bodies and quoted text don't count (lib/strip-command.py).
 source "$(dirname "$0")/lib/merge-target.sh"
+is_merge_command "$CMD" || exit 0
+
 resolve_merge_target "$INPUT"
 [ -n "$MERGE_PR" ] || exit 0
 
