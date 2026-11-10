@@ -260,6 +260,15 @@
             "timeout": 120
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/clear-review-marker-after-merge.sh"
+          }
+        ]
       }
     ]
   },
