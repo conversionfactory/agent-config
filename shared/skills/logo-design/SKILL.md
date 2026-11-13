@@ -32,7 +32,7 @@ Team throws everything at the wall, compiles top choices, sends to client with a
 ### Phase 2: Logo Design & Identity Presentation
 
 1. Final vector logo built in Adobe Illustrator (some Figma)
-2. Completed in black and white first to verify it works without color
+2. Completed in black and white first to verify it works without color. **One solid ink only: no gradients, no opacity or tint steps, no transparency** to separate parts of the mark. If two parts must differ, use form (solid vs outline, continuous vs dashed, a gap, weight) instead. Knockouts to the background are fine.
 3. Color applied from the creative direction palette
 4. Logo tested against the **SAD framework**:
    - **Simple**: Scales up/down
