@@ -104,6 +104,10 @@ A dark/light flip earns its place when:
 
 The flip serves contrast and attention, not decoration.
 
+### Site-Wide Light and Dark Modes
+
+Section flips are a design choice. A site-wide theme is the visitor's choice. If the site ships both light and dark, give visitors a visible Light / Dark / System control in the header or footer. Default to System (`prefers-color-scheme`), save the choice locally, and apply it before first paint so the page never flashes the wrong theme. Design and check every section, CTA and image in both themes. A site that ships one theme needs no toggle.
+
 ---
 
 ## Light and Depth
